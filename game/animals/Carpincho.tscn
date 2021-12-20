@@ -1,0 +1,124 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://resources/animals/carpincho.png" type="Texture" id=1]
+[ext_resource path="res://game/animals/Carpincho.gd" type="Script" id=2]
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("CarpinchoSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 3 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CarpinchoSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 3, 0, 3 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "walk_back"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CarpinchoSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 4, 5, 6, 7, 4 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "walk_front"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CarpinchoSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 8, 9, 10, 11, 8 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "walk_side"
+length = 0.8
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("CarpinchoSprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 0 ]
+}
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 8.5, 7.5 )
+
+[node name="Carpincho" type="KinematicBody2D"]
+z_index = 50
+z_as_relative = false
+script = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/RESET = SubResource( 5 )
+anims/idle = SubResource( 4 )
+anims/walk_back = SubResource( 7 )
+anims/walk_front = SubResource( 6 )
+anims/walk_side = SubResource( 8 )
+
+[node name="CarpinchoSprite" type="Sprite" parent="."]
+position = Vector2( 0, 60 )
+z_index = 50
+z_as_relative = false
+texture = ExtResource( 1 )
+hframes = 4
+vframes = 3
+frame = 3
+region_rect = Rect2( 0, 0, 16, 16 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 60 )
+shape = SubResource( 3 )
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+editor_draw_drag_margin = true

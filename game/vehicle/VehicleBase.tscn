@@ -1,0 +1,128 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://resources/vehicles/vehicle_1.png" type="Texture" id=1]
+[ext_resource path="res://game/vehicle/VehicleBase.gd" type="Script" id=2]
+
+[sub_resource type="Gradient" id=1]
+offsets = PoolRealArray( 0, 0.175824, 0.725275, 1 )
+colors = PoolColorArray( 0, 0, 0, 1, 0.769531, 0.769531, 0.769531, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=2]
+gradient = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+gravity = Vector3( 5, -80, 0 )
+initial_velocity = 25.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+scale = 1.5
+scale_random = 1.0
+color_ramp = SubResource( 2 )
+
+[sub_resource type="Animation" id=5]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D/Skeleton2D/root/Bone2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( -1.6667, -8.3333 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Polygon2D/Skeleton2D/root/Bone2D:rotation_degrees")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Polygon2D/Skeleton2D/root/Bone2D:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle"
+length = 1.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Polygon2D/Skeleton2D/root/Bone2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.6, 0.8, 1, 1.2, 1.4, 1.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( -5.72205e-06, -8.33333 ), Vector2( -1.6667, -8.3333 ), Vector2( -3.33337, -9.99997 ), Vector2( -3.52859e-05, -8.3333 ), Vector2( 1.66663, -8.3333 ), Vector2( 3.3333, -9.99997 ), Vector2( 1.66663, -8.3333 ), Vector2( -5.72205e-06, -8.33333 ) ]
+}
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 22.0833, 9.16667 )
+
+[node name="VehicleBase" type="KinematicBody2D"]
+position = Vector2( -22, -12 )
+scale = Vector2( 0.9, 0.9 )
+script = ExtResource( 2 )
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+texture = ExtResource( 1 )
+skeleton = NodePath("Skeleton2D")
+polygon = PoolVector2Array( 3.81395, 4.37209, 16.093, 4.65116, 23.0698, 0.465116, 38.5116, 0.186047, 43.907, 4.27907, 47.2558, 4.46512, 47.6279, 15.3488, 47.814, 20.3721, 46.2326, 23.907, 2.97674, 24.093, 0, 18.7907, 0.0930233, 6.97674, 17.0233, 14.9767, 30.1395, 14.6977, 42.3256, 14.8837, 0, 16 )
+uv = PoolVector2Array( 3.81395, 4.37209, 16.093, 4.65116, 23.0698, 0.465116, 38.5116, 0.186047, 43.907, 4.27907, 47.2558, 4.46512, 47.6279, 15.3488, 47.814, 20.3721, 46.2326, 23.907, 2.97674, 24.093, 0, 18.7907, 0.0930233, 6.97674, 15.5349, 14.7907, 30.1395, 14.6977, 42.3256, 14.8837, 0, 16 )
+polygons = [ PoolIntArray( 5, 6, 14, 13, 12, 15, 11, 0, 1, 2, 3, 4 ), PoolIntArray( 6, 7, 8, 9, 10, 15, 12, 13, 14 ) ]
+bones = [ "root", PoolRealArray( 0, 0, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0.5, 0.5, 0.5, 0.5 ), "root/Bone2D", PoolRealArray( 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0, 0, 0, 0, 0.5, 0.5, 0.5, 0.5, 0.5 ), "root/Bone2D/Bone2D", PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 ) ]
+internal_vertex_count = 4
+
+[node name="Particles2D" type="Particles2D" parent="Polygon2D"]
+position = Vector2( 46, 18 )
+amount = 95
+lifetime = 0.5
+explosiveness = 0.7
+randomness = 0.5
+process_material = SubResource( 3 )
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Polygon2D"]
+
+[node name="root" type="Bone2D" parent="Polygon2D/Skeleton2D"]
+position = Vector2( 26.6667, 23.3333 )
+rest = Transform2D( 1, 0, 0, 1, 26.6667, 23.3333 )
+default_length = 1.0
+
+[node name="Bone2D" type="Bone2D" parent="Polygon2D/Skeleton2D/root"]
+position = Vector2( -1.6667, -8.3333 )
+rest = Transform2D( 1, 0, 0, 1, -5.72205e-06, -8.33333 )
+default_length = 1.0
+
+[node name="Bone2D" type="Bone2D" parent="Polygon2D/Skeleton2D/root/Bone2D"]
+position = Vector2( 6.66667, -13.3333 )
+rest = Transform2D( 1, 0, 0, 1, 6.66667, -13.3333 )
+default_length = 1.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/RESET = SubResource( 5 )
+anims/idle = SubResource( 6 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 25, 13.3333 )
+shape = SubResource( 4 )
