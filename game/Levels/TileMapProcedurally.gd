@@ -1,17 +1,22 @@
 extends TileMap
 
-var width = 39
-var height = 30
-var margin = 5
-var yOffset= rand_range(margin,height-margin)
+
+export var width = 39
+export var height = 35
+export var amountRoad = 1
+
+var margin = 7
+var yOffset= height-margin
+#var yOffset= rand_range(margin,height-margin)
 var vehicle= preload("res://game/vehicle/VehicleBase.tscn")
 var rng = RandomNumberGenerator.new()
 var all_vehicles = []
 var beetween_cars= true
 
-export var amountRoad = 1
 
 onready var winPoint = $LakeWin
+onready var t_environment = $TileMapEnvio
+
 
 func _ready() -> void:
 	make_back_black()
@@ -45,6 +50,8 @@ func amount_road():
 func make_a_road(yOffsetSpace):
 	for x in width:
 		set_cell(x,yOffsetSpace+1,-1) 
+		t_environment.set_cell(x,yOffsetSpace+1,-1)
+		t_environment.set_cell(x,yOffsetSpace,-1)  
 		set_cell(x,yOffsetSpace,2) 
 	make_a_vehicle(yOffsetSpace*16)
 
@@ -71,9 +78,13 @@ func spawn_loop():
 
 	#----------------- Position for win zone
 
-func make_zonewin():
-	winPoint.position.x = (width/2)*16
 
+func make_zonewin():
+	for x in width:
+		for y in 10:
+			set_cell(x,-y,1)
+	winPoint.position.x = (width/2)*16
+	winPoint.position.y = -20
 
 #RESET ALL SCENE
 func _input(event:InputEvent) ->void:

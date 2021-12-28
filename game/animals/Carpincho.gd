@@ -5,7 +5,7 @@ signal take_damage()
 
 #-------------------- Global Variables
 
-export var vel = Vector2(150.0,150.0)
+export var vel = Vector2(960.0,960.0)
 
 #-------------------- Local Variables
 
@@ -38,11 +38,22 @@ func _input(event):
 func direction_input() -> Vector2:
 	var dir= Vector2.ZERO
 	if can_move:
-		dir.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
-		dir.y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
+#		dir.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
+#		dir.y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
+
+		if Input.is_action_just_pressed("ui_right"): 
+			dir.x =1
+		elif Input.is_action_just_pressed("ui_left"):
+			dir.x = -1
+		elif Input.is_action_just_pressed("ui_down"):
+			dir.y = 1
+		elif Input.is_action_just_pressed("ui_up"): 
+			dir.y = -1
+
 		if dir == Vector2.ZERO:
 			if !sprite_sit:
-				animation.play("idle")
+				pass
+#				animation.play("idle")
 		else: 
 			if dir.x < 0:
 				carpincho_sprite.flip_h = true
@@ -61,6 +72,7 @@ func direction_input() -> Vector2:
 func damage():
 	#animation.play("damage")
 	emit_signal("take_damage")
+	DataPlayer.damage()
 
 
 # standby controler
