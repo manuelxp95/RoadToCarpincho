@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ley_y_trampa_8bits.WAV-dbf41c3cd2b03bc26ff6472257d4d8a4.sample"
+
+[deps]
+
+source_file="res://resources/sfx/ley_y_trampa_8bits.WAV"
+dest_files=[ "res://.import/ley_y_trampa_8bits.WAV-dbf41c3cd2b03bc26ff6472257d4d8a4.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

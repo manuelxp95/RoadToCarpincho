@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/amor_salvaje_8bits.WAV-27d5a469991447eff88d1a87d4dbf596.sample"
+
+[deps]
+
+source_file="res://resources/sfx/amor_salvaje_8bits.WAV"
+dest_files=[ "res://.import/amor_salvaje_8bits.WAV-27d5a469991447eff88d1a87d4dbf596.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

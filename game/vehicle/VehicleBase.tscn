@@ -77,11 +77,12 @@ tracks/0/keys = {
 }
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 22.0833, 9.16667 )
+extents = Vector2( 24.6528, 9.16667 )
 
 [node name="VehicleBase" type="KinematicBody2D"]
 position = Vector2( -22, -12 )
 scale = Vector2( 0.9, 0.9 )
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
@@ -123,6 +124,15 @@ autoplay = "idle"
 anims/RESET = SubResource( 5 )
 anims/idle = SubResource( 6 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Detector" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Detector"]
+position = Vector2( 22.4305, 13.3333 )
+shape = SubResource( 4 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( 25, 13.3333 )
 shape = SubResource( 4 )
+
+[connection signal="body_entered" from="Detector" to="." method="_on_body_entered"]
