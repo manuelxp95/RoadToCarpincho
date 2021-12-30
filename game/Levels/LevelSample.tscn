@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://game/animals/Carpincho.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/Levels/TileMapProcedurally.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://resources/fences/Wooden fence/Wooden-fence-2.png" type="Texture" id=5]
 [ext_resource path="res://resources/grass/TX-Plant.png" type="Texture" id=6]
 [ext_resource path="res://resources/stones/TX Props.png" type="Texture" id=7]
+[ext_resource path="res://game/powerups/MatePowerUp.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 17, 0, 17, 0, 0, 32, 0 )
@@ -246,3 +247,6 @@ tile_data = PoolIntArray( 0, 3, 0, 38, 3, 0, 65536, 3, 0, 65574, 3, 0, 131072, 3
 
 [node name="Respawn" type="Position2D" parent="."]
 position = Vector2( 312, 440 )
+
+[node name="MatePowerUp" parent="." instance=ExtResource( 8 )]
+position = Vector2( 384, 504 )

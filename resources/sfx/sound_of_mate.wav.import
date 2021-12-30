@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/sound_of_mate.wav-edab1bd80935863732a39f19c02e3d2b.sample"
+
+[deps]
+
+source_file="res://resources/sfx/sound_of_mate.wav"
+dest_files=[ "res://.import/sound_of_mate.wav-edab1bd80935863732a39f19c02e3d2b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
