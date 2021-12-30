@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://resources/map/zonewin_f1.png" type="Texture" id=1]
 [ext_resource path="res://resources/map/zonewin_f2.png" type="Texture" id=2]
 [ext_resource path="res://game/environment/LakeWin.gd" type="Script" id=3]
+[ext_resource path="res://resources/grass/Grass-2.png" type="Texture" id=4]
+[ext_resource path="res://resources/trees/Tree-3/Tree-3-4.png" type="Texture" id=5]
+[ext_resource path="res://resources/grass/Grass-1.png" type="Texture" id=6]
+[ext_resource path="res://resources/trees/Tree-1/Tree-1-4.png" type="Texture" id=7]
 
 [sub_resource type="Animation" id=1]
 resource_name = "idle"
@@ -36,6 +40,84 @@ tracks/1/keys = {
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 56, 19 )
 
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 38, 38, 19, 57, 0, 38, 0, 38 )
+
+[sub_resource type="ConvexPolygonShape2D" id=4]
+points = PoolVector2Array( 14, 56, 14, 56, 42, 56, 28, 70 )
+
+[sub_resource type="TileSet" id=5]
+0/name = "Tree-1-4.png 0"
+0/texture = ExtResource( 7 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 38, 57 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 3 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "Tree-3-4.png 1"
+1/texture = ExtResource( 5 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 56, 70 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 4 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 4 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+2/name = "Grass-2.png 2"
+2/texture = ExtResource( 4 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 32, 16 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "Grass-1.png 3"
+3/texture = ExtResource( 6 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 26, 26 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+
 [node name="LakeWin" type="Area2D"]
 collision_layer = 4
 collision_mask = 2
@@ -55,5 +137,11 @@ anims/idle = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 9, 23 )
 shape = SubResource( 2 )
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 5 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -458752, 1, 0, -196614, 0, 0, -196611, 3, 0, -262140, 0, 0, -131074, 2, 0, -196607, 2, 0, -65543, 3, 0, -65540, 2, 0, -131069, 1, 0, -6, 2, 0, 131075, 3, 0, 131076, 2, 0 )
 
 [connection signal="body_entered" from="." to="." method="_on_LakeWin_body_entered"]

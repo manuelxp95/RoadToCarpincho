@@ -33,7 +33,9 @@ func _process(_delta):
 func make_back_black():
 	for x in width:
 		for y in height:
-			set_cell(x,y,0) #0 is the tile name
+			var rng_x= rng.randi_range(0,7)
+			var rng_y= rng.randi_range(0,7)
+			set_cell(x,y,6,false,false,false,Vector2(rng_x,rng_y)) #0 is the tile name
 
 
 func amount_road():
@@ -80,9 +82,12 @@ func spawn_loop():
 
 
 func make_zonewin():
+
 	for x in width:
 		for y in 10:
-			set_cell(x,-y,1)
+			var rng_x= rng.randi_range(0,8)
+			var rng_y= rng.randi_range(0,5)
+			set_cell(x,-y,5,false,false,false,Vector2(rng_x,rng_y))
 	winPoint.position.x = (width/2)*16
 	winPoint.position.y = -20
 

@@ -26,6 +26,8 @@ func _physics_process(_delta):
 	mov.y= vel.y * direction_input().y
 	move_and_slide(mov,Vector2.UP)
 
+
+#--------------- Only standby control
 func _input(event):
 	if event is InputEventKey:
 		t_standby.start()
@@ -38,35 +40,30 @@ func _input(event):
 func direction_input() -> Vector2:
 	var dir= Vector2.ZERO
 	if can_move:
-#		dir.x = Input.get_action_strength("ui_right")-Input.get_action_strength("ui_left")
-#		dir.y = Input.get_action_strength("ui_down")-Input.get_action_strength("ui_up")
-
-		if Input.is_action_just_pressed("ui_right"): 
-			dir.x =1
-		elif Input.is_action_just_pressed("ui_left"):
-			dir.x = -1
-		elif Input.is_action_just_pressed("ui_down"):
-			dir.y = 1
-		elif Input.is_action_just_pressed("ui_up"): 
-			dir.y = -1
-
-		if dir == Vector2.ZERO:
-			if !sprite_sit:
-				pass
-#				animation.play("idle")
-		else: 
-			if dir.x < 0:
-				carpincho_sprite.flip_h = true
-				animation.play("walk_side")
-			elif dir.x > 0:
-				carpincho_sprite.flip_h = false
-				animation.play("walk_side")
-			elif dir.y < 0:
-				animation.play("walk_front")
-			else:
-				animation.play("walk_back")
+		dir = dir_input(dir)
+		if dir.x < 0:
+			carpincho_sprite.flip_h = true
+			animation.play("walk_side")
+		elif dir.x > 0:
+			carpincho_sprite.flip_h = false
+			animation.play("walk_side")
+		elif dir.y < 0:
+			animation.play("walk_front")
+		elif dir.y > 0:
+			animation.play("idle")
 	return dir
 
+
+func dir_input(direction:Vector2) -> Vector2:
+	if Input.is_action_just_pressed("ui_right"): 
+		direction.x =1
+	elif Input.is_action_just_pressed("ui_left"):
+		direction.x = -1
+	elif Input.is_action_just_pressed("ui_down"):
+		direction.y = 1
+	elif Input.is_action_just_pressed("ui_up"): 
+		direction.y = -1
+	return direction
 
 
 func damage():

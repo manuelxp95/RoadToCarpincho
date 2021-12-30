@@ -5,6 +5,7 @@ onready var respawn_pos= $Respawn
 
 func _ready():
 	player.connect("take_damage",self,"respawn")
+#	GlobalSfx.music()
 
 func respawn():
 	player.global_position= respawn_pos.global_position
