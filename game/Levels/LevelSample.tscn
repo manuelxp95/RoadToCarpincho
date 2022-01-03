@@ -248,5 +248,7 @@ tile_data = PoolIntArray( 0, 3, 0, 38, 3, 0, 65536, 3, 0, 65574, 3, 0, 131072, 3
 [node name="Respawn" type="Position2D" parent="."]
 position = Vector2( 312, 440 )
 
-[node name="MatePowerUp" parent="." instance=ExtResource( 8 )]
+[node name="Powerup" type="Node" parent="."]
+
+[node name="MatePowerUp" parent="Powerup" instance=ExtResource( 8 )]
 position = Vector2( 384, 504 )

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var vel = Vector2(-100,0)
+export var vel = Vector2(-100,0)
 var my_pos = Vector2.ZERO
 var my_dir = 0
 
