@@ -22,6 +22,7 @@ func _process(delta):
 		if current_time >= duration_ms:
 			is_active =false
 			value= END_VALUE
+			GlobalSfx.normalmusic()
 			Engine.time_scale=END_VALUE
 
 

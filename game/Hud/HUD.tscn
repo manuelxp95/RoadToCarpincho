@@ -1,0 +1,164 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://resources/animals/carpincho_16bits.png" type="Texture" id=1]
+[ext_resource path="res://resources/font/zig_____.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://game/Hud/HUD.gd" type="Script" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 64, 224, 32, 32 )
+
+[sub_resource type="Animation" id=3]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Life1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Life2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 56, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Life3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 112, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Life1:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -8 ), Vector2( 0, -16 ), Vector2( 0, -8 ), Vector2( 0, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Life2:rect_position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.4, 0.5, 0.6, 0.7, 0.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 56, 0 ), Vector2( 56, -8 ), Vector2( 56, -16 ), Vector2( 56, -8 ), Vector2( 56, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Life3:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.7, 0.8, 0.9, 1, 1.1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 112, 0 ), Vector2( 112, -8 ), Vector2( 112, -16 ), Vector2( 112, -8 ), Vector2( 112, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 2 )
+
+[node name="HUD" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CornerLeft" type="NinePatchRect" parent="."]
+margin_right = 56.0
+margin_bottom = 56.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life1" type="TextureRect" parent="CornerLeft"]
+margin_right = 100.0
+margin_bottom = 100.0
+texture = SubResource( 1 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life2" type="TextureRect" parent="CornerLeft"]
+margin_left = 56.0
+margin_right = 156.0
+margin_bottom = 100.0
+texture = SubResource( 1 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Life3" type="TextureRect" parent="CornerLeft"]
+margin_left = 112.0
+margin_right = 212.0
+margin_bottom = 100.0
+texture = SubResource( 1 )
+stretch_mode = 7
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CornerLeft"]
+autoplay = "idle"
+anims/RESET = SubResource( 3 )
+anims/idle = SubResource( 4 )
+
+[node name="CornerRigth" type="NinePatchRect" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ScoreText" type="Label" parent="CornerRigth"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -224.0
+margin_bottom = 72.0
+custom_fonts/font = SubResource( 2 )
+text = "Score: "
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

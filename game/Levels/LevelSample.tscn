@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://game/animals/Carpincho.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/Levels/TileMapProcedurally.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://resources/grass/TX-Plant.png" type="Texture" id=6]
 [ext_resource path="res://resources/stones/TX Props.png" type="Texture" id=7]
 [ext_resource path="res://game/powerups/MatePowerUp.tscn" type="PackedScene" id=8]
+[ext_resource path="res://game/Hud/HUD.tscn" type="PackedScene" id=9]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 17, 0, 17, 0, 0, 32, 0 )
@@ -252,3 +253,7 @@ position = Vector2( 312, 440 )
 
 [node name="MatePowerUp" parent="Powerup" instance=ExtResource( 8 )]
 position = Vector2( 384, 504 )
+
+[node name="TopLayer" type="CanvasLayer" parent="."]
+
+[node name="HUD" parent="TopLayer" instance=ExtResource( 9 )]

@@ -144,4 +144,9 @@ cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( -458752, 1, 0, -196614, 0, 0, -196611, 3, 0, -262140, 0, 0, -131074, 2, 0, -196607, 2, 0, -65543, 3, 0, -65540, 2, 0, -131069, 1, 0, -6, 2, 0, 131075, 3, 0, 131076, 2, 0 )
 
+[node name="TimerScore" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
 [connection signal="body_entered" from="." to="." method="_on_LakeWin_body_entered"]
+[connection signal="timeout" from="TimerScore" to="." method="_on_TimerScore_timeout"]

@@ -222,7 +222,7 @@ vframes = 9
 frame = 3
 region_rect = Rect2( 0, 0, 16, 16 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 65 )
 shape = SubResource( 3 )
 

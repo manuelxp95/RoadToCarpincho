@@ -35,4 +35,5 @@ func destroy():
 
 
 func _on_body_entered(body):
-	body.damage()
+	if body.get_name() == "Carpincho":
+		body.damage()

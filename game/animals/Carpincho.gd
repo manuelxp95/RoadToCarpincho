@@ -20,6 +20,8 @@ var sprite_sit=false
 onready var animation= $AnimationPlayer
 onready var carpincho_sprite=$CarpinchoSprite
 onready var t_standby=$TimerStandby
+onready var collision = $Collision
+
 
 
 func _ready() -> void:
@@ -74,12 +76,16 @@ func dir_input(direction:Vector2) -> Vector2:
 	return direction
 
 
-func damage():
+func damage() -> void:
 	#animation.play("damage")
+	collision.set_deferred("disabled",true)
 	emit_signal("take_damage")
 	DataPlayer.damage()
 
-func mate_powerup():
+func collision_active(): 
+	collision.set_deferred("disabled",false)
+
+func mate_powerup() -> void:
 	$Camera2D/PoweUp/AnimationPower.play("slowtime")
 
 # standby controler
