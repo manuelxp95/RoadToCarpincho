@@ -11,7 +11,6 @@ export var vel = Vector2(960.0,960.0)
 const vel_const = Vector2(960.0,960.0)
 
 var mov= Vector2.ZERO
-var can_move= true
 var lvl_spawn = Vector2(0,0)
 var sprite_sit=false
 
@@ -49,7 +48,7 @@ func _input(event):
 
 func direction_input() -> Vector2:
 	var dir= Vector2.ZERO
-	if can_move:
+	if DataPlayer.can_move:
 		dir = dir_input(dir)
 		if dir.x < 0:
 			carpincho_sprite.flip_h = true
@@ -77,9 +76,8 @@ func dir_input(direction:Vector2) -> Vector2:
 
 
 func damage() -> void:
-	#animation.play("damage")
-	collision.set_deferred("disabled",true)
-	emit_signal("take_damage")
+	DataPlayer.can_move=false
+	animation.play("death")
 	DataPlayer.damage()
 
 func collision_active(): 

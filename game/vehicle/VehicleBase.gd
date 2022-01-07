@@ -36,4 +36,5 @@ func destroy():
 
 func _on_body_entered(body):
 	if body.get_name() == "Carpincho":
+		body.collision.set_deferred("disabled",true)
 		body.damage()

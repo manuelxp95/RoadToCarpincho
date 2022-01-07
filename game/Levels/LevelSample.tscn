@@ -227,7 +227,7 @@ points = PoolVector2Array( 24.1018, 22.5787, 10.7916, 22.5787, 10.7916, 11.0046,
 script = ExtResource( 3 )
 
 [node name="Carpincho" parent="." instance=ExtResource( 1 )]
-position = Vector2( 328, 456 )
+position = Vector2( 336, 456 )
 
 [node name="Mapa" type="Node" parent="."]
 
