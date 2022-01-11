@@ -265,4 +265,4 @@ position = Vector2( 280, 512 )
 [node name="HUD" parent="TopLayer" instance=ExtResource( 9 )]
 
 [node name="Gaucho" parent="." instance=ExtResource( 11 )]
-position = Vector2( 264, 488 )
+position = Vector2( 64, 392 )
