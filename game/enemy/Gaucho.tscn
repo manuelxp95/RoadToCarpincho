@@ -639,7 +639,7 @@ anims/walk_rigth = SubResource( 43 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 35 )
 animation = "walk"
-frame = 4
+frame = 3
 
 [node name="Detector" type="RayCast2D" parent="AnimatedSprite"]
 position = Vector2( 0, 22 )

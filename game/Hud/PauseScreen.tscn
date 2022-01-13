@@ -1,0 +1,76 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://game/Hud/ButtonSample.tscn" type="PackedScene" id=1]
+[ext_resource path="res://game/Hud/PauseScreen.gd" type="Script" id=2]
+[ext_resource path="res://game/Hud/ButtonExit.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.890196, 0.890196, 0.909804, 0.388235 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="PauseScreen" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0509804, 0.00392157, 0.00392157, 0.368627 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color( 0.968627, 0.686275, 0.411765, 1 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -138.0
+margin_top = -110.0
+margin_right = 138.0
+margin_bottom = 110.0
+custom_styles/panel = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -109.0
+margin_top = -53.0
+margin_right = 109.0
+margin_bottom = 53.0
+custom_constants/separation = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ButtonResume" parent="Panel/VBoxContainer" instance=ExtResource( 1 )]
+margin_right = 218.0
+margin_bottom = 21.0
+text = "resume"
+
+[node name="ButtonMain" parent="Panel/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 41.0
+margin_right = 218.0
+margin_bottom = 62.0
+text = "Main Menu"
+
+[node name="ButtonExit" parent="Panel/VBoxContainer" instance=ExtResource( 1 )]
+margin_top = 82.0
+margin_right = 218.0
+margin_bottom = 103.0
+text = "Exit"
+script = ExtResource( 3 )
+
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonResume" to="." method="_on_ButtonResume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonExit" to="Panel/VBoxContainer/ButtonExit" method="_on_ButtonExit_pressed"]

@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://resources/font/zig_____.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://game/Hud/ButtonSampleNormal.tres" type="StyleBox" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.982422, 0.665238, 0.330032, 1 )
+border_width_left = 4
+border_width_bottom = 4
+border_color = Color( 0.596078, 0.584314, 0.584314, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.657715, 0.391654, 0.110476, 1 )
+border_width_left = 2
+border_width_bottom = 2
+border_color = Color( 1, 1, 1, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[node name="ButtonSample" type="Button"]
+margin_right = 104.0
+margin_bottom = 40.0
+custom_fonts/font = SubResource( 1 )
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = ExtResource( 2 )
+text = "sample"
+__meta__ = {
+"_edit_use_anchors_": false
+}
