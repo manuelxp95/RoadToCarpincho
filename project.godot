@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="RoadToCarpincho"
-run/main_scene="res://game/Levels/LevelSample.tscn"
+run/main_scene="res://game/Hud/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

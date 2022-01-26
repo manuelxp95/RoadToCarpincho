@@ -4,11 +4,13 @@ extends TileMap
 export var width = 39
 export var height = 35
 export var amountRoad = 1
+export var amountEnemys = 0
 
 var margin = 7
 var yOffset= height-margin
 #var yOffset= rand_range(margin,height-margin)
 var vehicle= preload("res://game/vehicle/VehicleBase.tscn")
+var gaucho= preload("res://game/enemy/Gaucho.tscn")
 var rng = RandomNumberGenerator.new()
 var all_vehicles = []
 var beetween_cars= true
@@ -22,9 +24,11 @@ func _ready() -> void:
 	make_back_black()
 	amount_road()
 	make_zonewin()
+	spawn_gaucho()
 
 
 func _process(_delta):
+	rng = RandomNumberGenerator.new()
 	spawn_loop()
 
 
@@ -35,7 +39,7 @@ func make_back_black():
 		for y in height:
 			var rng_x= rng.randi_range(0,7)
 			var rng_y= rng.randi_range(0,7)
-			set_cell(x,y,6,false,false,false,Vector2(rng_x,rng_y)) #0 is the tile name
+			set_cell(x,y,6,false,false,false,Vector2(rng_x,rng_y)) #6 is the tile name, for this case the grass
 
 
 func amount_road():
@@ -82,7 +86,6 @@ func spawn_loop():
 
 
 func make_zonewin():
-
 	for x in width:
 		for y in 10:
 			var rng_x= rng.randi_range(0,8)
@@ -90,6 +93,21 @@ func make_zonewin():
 			set_cell(x,-y,5,false,false,false,Vector2(rng_x,rng_y))
 	winPoint.position.x = (width/2)*16
 	winPoint.position.y = -20
+
+
+#----------------------------------
+func spawn_gaucho():
+	var i = 1
+	while i <= amountEnemys:
+		var rng_x= rand_range(1,width-1)
+		var rng_y= rand_range(margin,yOffset)
+		if get_cell(rng_x,rng_y) == 6:
+			var new_enemy = gaucho.instance()
+			get_node("/root/LevelSample/Enemys").call_deferred("add_child", new_enemy)
+			new_enemy.create(Vector2(rng_x*16,rng_y*16))
+			i +=1
+
+
 
 #RESET ALL SCENE
 func _input(event:InputEvent) ->void:

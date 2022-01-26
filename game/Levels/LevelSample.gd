@@ -18,5 +18,3 @@ func respawn():
 	player.collision_active()
 	yield(get_tree().create_timer(1.0),"timeout")
 	DataPlayer.can_move= true
-	
-
