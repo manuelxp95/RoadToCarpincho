@@ -77,6 +77,7 @@ func dir_input(direction:Vector2) -> Vector2:
 
 func damage() -> void:
 	DataPlayer.can_move=false
+	$songHit.play()
 	animation.play("death")
 	DataPlayer.damage()
 

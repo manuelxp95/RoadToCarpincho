@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/A_don_amancio_8bits_lowpass.wav-f063307f3e04cf8b37735c0b31f98e2b.sample"
+
+[deps]
+
+source_file="res://resources/sfx/A_don_amancio_8bits_lowpass.wav"
+dest_files=[ "res://.import/A_don_amancio_8bits_lowpass.wav-f063307f3e04cf8b37735c0b31f98e2b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

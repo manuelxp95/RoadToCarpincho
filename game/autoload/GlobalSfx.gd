@@ -12,6 +12,11 @@ func normalmusic():
 	var ost_current= get_node(slow_song)
 	ost_current.pitch_scale = 1.0
 
+func startmusic():
+	$MainMenu/MenuOst.stop()
+	$MainMenu/MenuOst2.stop()
+	$OstSong1.play()
+
 func _on_OstSong1_finished():
 	current_song=2
 	$OstSong2.play()

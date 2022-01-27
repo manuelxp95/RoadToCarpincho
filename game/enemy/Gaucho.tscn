@@ -280,8 +280,8 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=42]
 resource_name = "walk_left "
-length = 0.6
 loop = true
+step = 0.05
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:flip_h")
 tracks/0/interp = 1
@@ -301,7 +301,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0, 1, 2, 3, 4, 5 ]
@@ -321,7 +321,6 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id=43]
 resource_name = "walk_rigth"
-length = 0.6
 loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath("AnimatedSprite:flip_h")
@@ -342,7 +341,7 @@ tracks/1/loop_wrap = true
 tracks/1/imported = false
 tracks/1/enabled = true
 tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1 ),
 "transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
 "update": 0,
 "values": [ 0, 1, 2, 3, 4, 5 ]
@@ -375,30 +374,6 @@ region = Rect2( 96, 0, 48, 48 )
 [sub_resource type="AtlasTexture" id=4]
 atlas = ExtResource( 1 )
 region = Rect2( 144, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 3 )
-region = Rect2( 48, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=7]
-atlas = ExtResource( 3 )
-region = Rect2( 96, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=8]
-atlas = ExtResource( 3 )
-region = Rect2( 144, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=9]
-atlas = ExtResource( 3 )
-region = Rect2( 192, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=10]
-atlas = ExtResource( 3 )
-region = Rect2( 240, 0, 48, 48 )
 
 [sub_resource type="AtlasTexture" id=11]
 atlas = ExtResource( 2 )
@@ -472,6 +447,30 @@ region = Rect2( 192, 0, 48, 48 )
 atlas = ExtResource( 5 )
 region = Rect2( 240, 0, 48, 48 )
 
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 3 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 3 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 3 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 3 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 3 )
+region = Rect2( 240, 0, 48, 48 )
+
 [sub_resource type="AtlasTexture" id=29]
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 48, 48 )
@@ -503,20 +502,20 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": true,
-"name": "run",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ), SubResource( 24 ), SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ) ],
 "loop": true,
 "name": "attack",
 "speed": 10.0
 }, {
+"frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "run",
+"speed": 10.0
+}, {
 "frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
 "loop": true,
 "name": "walk",
-"speed": 5.0
+"speed": 10.0
 } ]
 
 [sub_resource type="AnimationNodeAnimation" id=44]
@@ -591,8 +590,6 @@ blend_point_2/pos = Vector2( 0, 1 )
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=61]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=63]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=64]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=65]
@@ -600,18 +597,20 @@ switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=72]
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=73]
+
 [sub_resource type="AnimationNodeStateMachine" id=66]
 states/attack/node = SubResource( 47 )
 states/attack/position = Vector2( 118, 221 )
 states/idle/node = SubResource( 51 )
 states/idle/position = Vector2( 118, 112 )
 states/run/node = SubResource( 55 )
-states/run/position = Vector2( 537, 112 )
+states/run/position = Vector2( -71, 112 )
 states/walk/node = SubResource( 59 )
 states/walk/position = Vector2( 312, 112 )
-transitions = [ "idle", "walk", SubResource( 60 ), "walk", "idle", SubResource( 61 ), "run", "walk", SubResource( 63 ), "idle", "attack", SubResource( 64 ), "attack", "idle", SubResource( 65 ), "walk", "run", SubResource( 72 ) ]
+transitions = [ "idle", "walk", SubResource( 60 ), "walk", "idle", SubResource( 61 ), "idle", "attack", SubResource( 64 ), "attack", "idle", SubResource( 65 ), "run", "idle", SubResource( 72 ), "idle", "run", SubResource( 73 ) ]
 start_node = "idle"
-graph_offset = Vector2( -168.513, 39.648 )
+graph_offset = Vector2( -362.707, -60.7285 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=69]
 
@@ -640,6 +639,7 @@ anims/walk_rigth = SubResource( 43 )
 position = Vector2( 1, -1 )
 frames = SubResource( 35 )
 animation = "idle"
+frame = 1
 flip_h = true
 
 [node name="Detector" type="RayCast2D" parent="AnimatedSprite"]
@@ -656,11 +656,13 @@ enabled = true
 cast_to = Vector2( 30, 0 )
 collision_mask = 6
 
-[node name="DetectorPlayer" type="RayCast2D" parent="AnimatedSprite"]
-position = Vector2( 0, 15 )
-enabled = true
-cast_to = Vector2( 100, 0 )
+[node name="Area2D" type="Area2D" parent="AnimatedSprite"]
+collision_layer = 0
 collision_mask = 2
+
+[node name="ViewEnemy" type="CollisionPolygon2D" parent="AnimatedSprite/Area2D"]
+build_mode = 1
+polygon = PoolVector2Array( 107, -11, 107, 29, 3, 17 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 66 )
@@ -684,4 +686,6 @@ position = Vector2( 5, 6.875 )
 shape = SubResource( 71 )
 disabled = true
 
+[connection signal="body_entered" from="AnimatedSprite/Area2D" to="." method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="AnimatedSprite/Area2D" to="." method="_on_Area2D_body_exited"]
 [connection signal="body_entered" from="AreaHit" to="." method="_on_AreaHit_body_entered"]

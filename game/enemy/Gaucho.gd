@@ -9,7 +9,7 @@ var mypos= Vector2.ZERO
 
 onready var det_environment = $AnimatedSprite/Detector
 onready var det_environment2 = $AnimatedSprite/Detector2
-onready var det_player = $AnimatedSprite/DetectorPlayer
+onready var det_player = $AnimatedSprite/Area2D/ViewEnemy
 onready var animation_tree= get_node("AnimationTree")
 onready var state_machine
 
@@ -26,7 +26,7 @@ func _process(delta):
 #--------------Control of movement
 func tree_control():
 	#------------------- Dont view player
-	if ((det_environment.is_colliding() or det_environment2.is_colliding()) && !det_player.is_colliding()):
+	if ((det_environment.is_colliding() or det_environment2.is_colliding()) && can_move):
 			det_environment.set_deferred("enabled",false)
 			det_environment2.set_deferred("enabled",false)
 			can_move= false
@@ -46,14 +46,20 @@ func tree_control():
 			det_environment.set_deferred("enabled",true)
 			det_environment2.set_deferred("enabled",true)
 	#---------------- View the player
-	if det_player.is_colliding():
-		can_move= false
+#	if det_player.is_colliding():
+#		can_move= false
+#		run(speed)
+#		if det_environment.is_colliding():
+#			attack()
+#		yield(get_tree().create_timer(1.0),"timeout")
+#		can_move=true
+	if can_move:
+		walk(speed)
+	else:
 		run(speed)
 		if det_environment.is_colliding():
 			attack()
-		yield(get_tree().create_timer(1.0),"timeout")
-		can_move=true
-	walk(speed)
+
 
 
 func walk(sp):
@@ -84,3 +90,16 @@ func _on_AreaHit_body_entered(body):
 	if body.get_name() == "Carpincho":
 		body.collision.set_deferred("disabled",true)
 		body.damage()
+
+
+func _on_Area2D_body_entered(body):
+	can_move= false
+#	run(speed)
+#	if det_environment.is_colliding():
+#		attack()
+#	yield(get_tree().create_timer(1.0),"timeout")
+#	can_move=true
+
+
+func _on_Area2D_body_exited(body):
+	can_move= true

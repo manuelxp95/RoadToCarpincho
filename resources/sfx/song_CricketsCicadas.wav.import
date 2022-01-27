@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/song_CricketsCicadas.wav-0875dd8154f2c8015cb338a7f1bf6fb8.sample"
+
+[deps]
+
+source_file="res://resources/sfx/song_CricketsCicadas.wav"
+dest_files=[ "res://.import/song_CricketsCicadas.wav-0875dd8154f2c8015cb338a7f1bf6fb8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
