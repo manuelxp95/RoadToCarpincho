@@ -32,6 +32,8 @@ func tree_control():
 			can_move= false
 			state_machine.travel("idle")
 			move_and_slide(Vector2(0,0))
+
+
 			#------------- Rotate body
 			direction = -direction
 			speed = -speed
@@ -39,20 +41,15 @@ func tree_control():
 			det_environment2.scale.x=-(det_environment2.scale.x)
 			det_player.scale.x=-(det_player.scale.x)
 			$AreaHit/AttackRange.position.x= -$AreaHit/AttackRange.position.x
+
 			#------------------Return to walk
 			yield(get_tree().create_timer(1.0),"timeout")
 			can_move=true
 			state_machine.travel("walk")
 			det_environment.set_deferred("enabled",true)
 			det_environment2.set_deferred("enabled",true)
+
 	#---------------- View the player
-#	if det_player.is_colliding():
-#		can_move= false
-#		run(speed)
-#		if det_environment.is_colliding():
-#			attack()
-#		yield(get_tree().create_timer(1.0),"timeout")
-#		can_move=true
 	if can_move:
 		walk(speed)
 	else:
@@ -94,11 +91,7 @@ func _on_AreaHit_body_entered(body):
 
 func _on_Area2D_body_entered(body):
 	can_move= false
-#	run(speed)
-#	if det_environment.is_colliding():
-#		attack()
-#	yield(get_tree().create_timer(1.0),"timeout")
-#	can_move=true
+
 
 
 func _on_Area2D_body_exited(body):

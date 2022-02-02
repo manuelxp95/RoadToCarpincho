@@ -1,10 +1,12 @@
-extends Node
+ extends Node
 
 onready var player = $Carpincho
 onready var respawn_pos= $Respawn
 onready var vehicles= $Vehicles
 onready var powerup= $Powerup
 
+var carpincho
+var mosquito
 
 
 func _ready():

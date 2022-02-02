@@ -1,0 +1,519 @@
+[gd_scene load_steps=48 format=2]
+
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle02.png" type="Texture" id=1]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle03.png" type="Texture" id=2]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle04.png" type="Texture" id=3]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle06.png" type="Texture" id=4]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle09.png" type="Texture" id=5]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle08.png" type="Texture" id=6]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle00.png" type="Texture" id=7]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle05.png" type="Texture" id=8]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle07.png" type="Texture" id=9]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_idle01.png" type="Texture" id=10]
+[ext_resource path="res://game/enemy/Mosquito.gd" type="Script" id=11]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_attk02.png" type="Texture" id=12]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_attk03.png" type="Texture" id=13]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_attk01.png" type="Texture" id=14]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_attk04.png" type="Texture" id=15]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_attk06.png" type="Texture" id=16]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_attk05.png" type="Texture" id=17]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_dead02.png" type="Texture" id=18]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_dead01.png" type="Texture" id=19]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_dead03.png" type="Texture" id=20]
+[ext_resource path="res://resources/enemy/mosquito/mosquito_dead00.png" type="Texture" id=21]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 10 ), ExtResource( 1 ), ExtResource( 2 ), ExtResource( 3 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 6 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "idle",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 14 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 15 ), ExtResource( 17 ), ExtResource( 16 ) ],
+"loop": true,
+"name": "attk",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 21 ), ExtResource( 19 ), ExtResource( 18 ), ExtResource( 20 ) ],
+"loop": true,
+"name": "dead",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=22]
+radius = 15.6368
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9.5, 5.75 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "attk_left"
+length = 0.55
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "attk" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "attk_rigth"
+length = 0.55
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "attk" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "dead_left"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "dead" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Animation:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -7 ), Vector2( 0, 20 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Animation:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "dead_rigth"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "dead" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Animation:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, -7 ), Vector2( 0, 20 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("Animation:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 0.6 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/5/type = "method"
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0.6 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "queue_free"
+} ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle_left"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Animation:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "idle_rigth"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Animation:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ "idle" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Animation:flip_h")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Animation:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Animation:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -10 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "attk_rigth"
+
+[sub_resource type="AnimationNodeAnimation" id=14]
+animation = "idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id=25]
+animation = "attk_rigth"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=15]
+blend_point_0/node = SubResource( 13 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 14 )
+blend_point_1/pos = -1.0
+blend_point_2/node = SubResource( 25 )
+blend_point_2/pos = 0.0
+
+[sub_resource type="AnimationNodeAnimation" id=26]
+animation = "dead_rigth"
+
+[sub_resource type="AnimationNodeAnimation" id=27]
+animation = "dead_left"
+
+[sub_resource type="AnimationNodeAnimation" id=28]
+animation = "dead_rigth"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=29]
+blend_point_0/node = SubResource( 26 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 27 )
+blend_point_1/pos = -1.0
+blend_point_2/node = SubResource( 28 )
+blend_point_2/pos = 0.0
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "idle_rigth"
+
+[sub_resource type="AnimationNodeAnimation" id=17]
+animation = "idle_left"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "idle_rigth"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=19]
+blend_point_0/node = SubResource( 16 )
+blend_point_0/pos = 1.0
+blend_point_1/node = SubResource( 17 )
+blend_point_1/pos = -1.0
+blend_point_2/node = SubResource( 18 )
+blend_point_2/pos = 0.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=30]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=31]
+
+[sub_resource type="AnimationNodeStateMachine" id=11]
+states/attack/node = SubResource( 15 )
+states/attack/position = Vector2( 428, 94 )
+states/dead/node = SubResource( 29 )
+states/dead/position = Vector2( 678, 94 )
+states/idle/node = SubResource( 19 )
+states/idle/position = Vector2( 210, 94 )
+transitions = [ "idle", "attack", SubResource( 20 ), "attack", "dead", SubResource( 30 ), "attack", "idle", SubResource( 31 ) ]
+start_node = "idle"
+end_node = "dead"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+
+[node name="Mosquito" type="KinematicBody2D"]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource( 11 )
+
+[node name="Animation" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -6.08128 )
+scale = Vector2( 0.45, 0.45 )
+frames = SubResource( 1 )
+animation = "idle"
+frame = 3
+
+[node name="DetectorPlayer" type="Area2D" parent="Animation"]
+position = Vector2( 0, 16.0046 )
+scale = Vector2( 2.22222, 2.22222 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="Vision1" type="CollisionPolygon2D" parent="Animation/DetectorPlayer"]
+polygon = PoolVector2Array( 2, -1, 75, -104, 114, -50 )
+
+[node name="Vision2" type="CollisionPolygon2D" parent="Animation/DetectorPlayer"]
+scale = Vector2( 1, -1 )
+polygon = PoolVector2Array( 2, -1, 75, -104, 114, -50 )
+
+[node name="AreaHit" type="Area2D" parent="Animation"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Animation/AreaHit"]
+position = Vector2( 28.8889, -11.1161 )
+shape = SubResource( 22 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/attk_left = SubResource( 3 )
+anims/attk_rigth = SubResource( 4 )
+anims/dead_left = SubResource( 23 )
+anims/dead_rigth = SubResource( 24 )
+anims/idle_left = SubResource( 5 )
+anims/idle_rigth = SubResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 11 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 12 )
+parameters/attack/blend_position = -0.00436682
+parameters/dead/blend_position = 0
+parameters/idle/blend_position = 0.0
+
+[node name="Tween" type="Tween" parent="."]
+
+[connection signal="body_entered" from="Animation/DetectorPlayer" to="." method="_on_DetectorPlayer_body_entered"]
+[connection signal="body_exited" from="Animation/DetectorPlayer" to="." method="_on_DetectorPlayer_body_exited"]
+[connection signal="body_entered" from="Animation/AreaHit" to="." method="_on_AreaHit_body_entered"]

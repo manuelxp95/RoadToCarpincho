@@ -14,11 +14,14 @@ var mov= Vector2.ZERO
 var lvl_spawn = Vector2(0,0)
 var sprite_sit=false
 
+var poison= 1
+
 #-------------------- Node variables
 
 onready var animation= $AnimationPlayer
 onready var carpincho_sprite=$CarpinchoSprite
 onready var t_standby=$TimerStandby
+onready var t_posion=$TimerPoison
 onready var collision = $Collision
 
 
@@ -65,13 +68,17 @@ func direction_input() -> Vector2:
 
 func dir_input(direction:Vector2) -> Vector2:
 	if Input.is_action_just_pressed("ui_right"): 
-		direction.x =1
+		direction.x =1*poison
+		$soundWalk.play()
 	elif Input.is_action_just_pressed("ui_left"):
-		direction.x = -1
+		direction.x = -1*poison
+		$soundWalk.play()
 	elif Input.is_action_just_pressed("ui_down"):
-		direction.y = 1
+		direction.y = 1*poison
+		$soundWalk.play()
 	elif Input.is_action_just_pressed("ui_up"): 
-		direction.y = -1
+		direction.y = -1*poison
+		$soundWalk.play()
 	return direction
 
 
@@ -101,3 +108,24 @@ func check_speed() -> void:
 		vel = vel_const * 10
 	else:
 		vel = vel_const
+
+func get_mypos():
+	return global_position
+
+func poison():
+	self.modulate = Color("00ff52")
+	print(modulate)
+	t_posion.start()
+	$BubblePoison.emitting=true
+	poison=-1
+
+
+
+func disabled():
+	queue_free()
+
+
+func _on_TimerPoison_timeout():
+	self.modulate = Color("ffffff")
+	$BubblePoison.emitting=false
+	poison=1

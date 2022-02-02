@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Pokémon Capture Sound Effect.wav-920223357c687d66b639d9804b3f97e1.sample"
+
+[deps]
+
+source_file="res://resources/sfx/Pokémon Capture Sound Effect.wav"
+dest_files=[ "res://.import/Pokémon Capture Sound Effect.wav-920223357c687d66b639d9804b3f97e1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
