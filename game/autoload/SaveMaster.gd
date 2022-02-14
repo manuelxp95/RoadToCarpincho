@@ -40,10 +40,10 @@ func new_score(new_name,score):
 		if score > (data[i])[1]:
 			var cont = 3
 			for j in 3-i:
-				if cont >= 0:
+				if cont >= 0 and cont+i < 4:
 					data[i+cont] = data[i+cont-1]
 					cont -= 1
 			data[i]=[new_name,score]
-		save_data()
-		break
+			save_data()
+			break
 

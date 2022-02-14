@@ -10,7 +10,7 @@
 [ext_resource path="res://game/Hud/ButtonSample.tscn" type="PackedScene" id=8]
 [ext_resource path="res://game/Hud/MainMenu.gd" type="Script" id=9]
 
-[sub_resource type="StyleBoxFlat" id=5]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.858824, 0.513726, 0.14902, 0.733333 )
 border_width_left = 10
 border_width_top = 10
@@ -22,16 +22,16 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="DynamicFont" id=7]
+[sub_resource type="DynamicFont" id=2]
 size = 20
 font_data = ExtResource( 7 )
 
-[sub_resource type="Theme" id=6]
+[sub_resource type="Theme" id=3]
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 7 )
 
-[sub_resource type="Animation" id=9]
+[sub_resource type="Animation" id=5]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("Camera2D:position")
@@ -58,7 +58,7 @@ tracks/1/keys = {
 "values": [ Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=6]
 resource_name = "select_in"
 length = 2.0
 tracks/0/type = "value"
@@ -110,7 +110,7 @@ tracks/3/keys = {
 "values": [ true ]
 }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=7]
 resource_name = "select_out"
 length = 2.0
 tracks/0/type = "value"
@@ -162,11 +162,7 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 
-[sub_resource type="DynamicFont" id=3]
-size = 40
-font_data = ExtResource( 7 )
-
-[sub_resource type="StyleBoxFlat" id=4]
+[sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.909804, 0.639216, 0.32549, 0.698039 )
 border_width_left = 5
 border_width_top = 5
@@ -179,7 +175,11 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 shadow_size = 3
 
-[sub_resource type="Animation" id=1]
+[sub_resource type="DynamicFont" id=9]
+size = 40
+font_data = ExtResource( 7 )
+
+[sub_resource type="Animation" id=10]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/path = NodePath("LeafFront1:position")
@@ -326,8 +326,7 @@ tracks/11/keys = {
 "values": [ 0.0 ]
 }
 
-[sub_resource type="Animation" id=2]
-resource_name = "default"
+[sub_resource type="Animation" id=11]
 length = 10.0
 loop = true
 step = 0.064
@@ -660,7 +659,7 @@ margin_left = -150.0
 margin_top = -100.0
 margin_right = 150.0
 margin_bottom = 100.0
-custom_styles/panel = SubResource( 5 )
+custom_styles/panel = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -672,7 +671,7 @@ margin_left = -116.0
 margin_top = 20.0
 margin_right = 116.0
 margin_bottom = 20.0
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 2 )
 text = "SCORES"
 align = 1
 __meta__ = {
@@ -688,7 +687,7 @@ margin_left = -112.0
 margin_top = -64.0
 margin_right = 120.0
 margin_bottom = 76.0
-theme = SubResource( 6 )
+theme = SubResource( 3 )
 custom_constants/separation = 4
 alignment = 1
 __meta__ = {
@@ -707,7 +706,7 @@ __meta__ = {
 margin_top = 17.0
 margin_right = 232.0
 margin_bottom = 34.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 4 )
 text = "SCORES"
 align = 1
 
@@ -715,7 +714,7 @@ align = 1
 margin_top = 38.0
 margin_right = 232.0
 margin_bottom = 55.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 4 )
 text = "SCORES"
 align = 1
 
@@ -723,7 +722,7 @@ align = 1
 margin_top = 59.0
 margin_right = 232.0
 margin_bottom = 76.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 4 )
 text = "SCORES"
 align = 1
 
@@ -731,7 +730,7 @@ align = 1
 margin_top = 80.0
 margin_right = 232.0
 margin_bottom = 97.0
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 4 )
 text = "SCORES"
 align = 1
 
@@ -750,9 +749,9 @@ margin_bottom = 130.0
 text = "Back"
 
 [node name="AnimationScore" type="AnimationPlayer" parent="Scores"]
-anims/RESET = SubResource( 9 )
-anims/select_in = SubResource( 10 )
-anims/select_out = SubResource( 11 )
+anims/RESET = SubResource( 5 )
+anims/select_in = SubResource( 6 )
+anims/select_out = SubResource( 7 )
 
 [node name="TreeFront" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -770,8 +769,8 @@ margin_left = -272.0
 margin_top = 50.0
 margin_right = 282.0
 margin_bottom = 100.0
-custom_fonts/font = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
+custom_styles/normal = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 text = "Road to Carpincho"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -785,8 +784,8 @@ flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "default"
-anims/RESET = SubResource( 1 )
-anims/default = SubResource( 2 )
+anims/RESET = SubResource( 10 )
+anims/default = SubResource( 11 )
 
 [node name="Buttons" type="Node" parent="."]
 
@@ -821,7 +820,6 @@ margin_top = 92.0
 margin_right = 209.0
 margin_bottom = 113.0
 text = "Exit"
-
 [connection signal="pressed" from="Scores/Camera2D/Panel/VBoxContainer/ButtonBack" to="." method="_on_ButtonBack_pressed"]
 [connection signal="pressed" from="Buttons/VBoxContainer/ButtonStart" to="." method="_on_ButtonStart_pressed"]
 [connection signal="pressed" from="Buttons/VBoxContainer/ButtonScores" to="." method="_on_ButtonScores_pressed"]
