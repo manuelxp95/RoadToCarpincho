@@ -12,6 +12,16 @@ var mosquito
 func _ready():
 	player.connect("take_damage",self,"respawn")
 
+func _process(_delta):
+	gameover()
+
+
+func gameover():
+	if DataPlayer.lifes == 0:
+		$TopLayer/HUD.visible=false
+		DataPlayer.can_move=false
+		$TopLayer/GameOverScreen.visible = true
+
 
 
 func respawn():

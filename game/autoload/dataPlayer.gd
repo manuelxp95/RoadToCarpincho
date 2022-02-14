@@ -15,6 +15,11 @@ func _ready():
 	emit_signal("start_game")
 
 
+func reset():
+	lifes = 3 
+	score = 0
+	can_take_damage= true
+	can_move =true
 
 func damage():
 	if can_take_damage:
