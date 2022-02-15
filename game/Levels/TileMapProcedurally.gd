@@ -111,7 +111,7 @@ func spawn_gaucho():
 
 #RESET ALL SCENE
 func _input(event:InputEvent) ->void:
-	if event.is_action_pressed("reset"):
+	if event.is_action_pressed("reset") and DataPlayer.lifes != 0:
 		get_tree().reload_current_scene()
 
 
