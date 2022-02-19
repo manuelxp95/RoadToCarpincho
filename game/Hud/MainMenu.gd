@@ -16,7 +16,11 @@ func set_scores():
 
 
 func _on_ButtonStart_pressed():
-	get_tree().change_scene("res://game/Levels/LevelSample.tscn")
+	if DataPlayer.first_time ==true:
+		get_tree().change_scene("res://game/Hud/Tutorial.tscn")
+		DataPlayer.first_time= false
+	else:
+		get_tree().change_scene("res://game/Levels/LevelSample.tscn")
 	GlobalSfx.startmusic()
 
 

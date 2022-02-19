@@ -112,8 +112,11 @@ func spawn_gaucho():
 #RESET ALL SCENE
 func _input(event:InputEvent) ->void:
 	if event.is_action_pressed("reset") and DataPlayer.lifes != 0:
-		get_tree().reload_current_scene()
+		DataPlayer.score -= 50
 
+
+func reload_map()->void:
+	get_tree().reload_current_scene()
 
 func _on_Timer_timeout():
 	beetween_cars=true

@@ -118,7 +118,7 @@ tracks/3/keys = {
 "values": [ Vector2( 192, 16 ), Vector2( 192, 8 ), Vector2( 192, 16 ) ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=14]
 size = 24
 font_data = ExtResource( 2 )
 
@@ -270,7 +270,7 @@ anchor_left = 1.0
 anchor_right = 1.0
 margin_left = -224.0
 margin_bottom = 72.0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 14 )
 text = "Score: "
 align = 2
 valign = 1

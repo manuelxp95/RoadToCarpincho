@@ -12,3 +12,7 @@ func _input(event):
 func _on_ButtonResume_pressed():
 	get_tree().paused=false
 	visible = !visible
+
+
+func _on_ButtonMain_pressed():
+	get_tree().change_scene("res://game/Hud/MainMenu.tscn")

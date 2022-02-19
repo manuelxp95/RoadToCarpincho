@@ -73,4 +73,5 @@ text = "Exit"
 script = ExtResource( 3 )
 
 [connection signal="pressed" from="Panel/VBoxContainer/ButtonResume" to="." method="_on_ButtonResume_pressed"]
+[connection signal="pressed" from="Panel/VBoxContainer/ButtonMain" to="." method="_on_ButtonMain_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/ButtonExit" to="Panel/VBoxContainer/ButtonExit" method="_on_ButtonExit_pressed"]

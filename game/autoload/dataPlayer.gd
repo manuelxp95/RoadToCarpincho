@@ -8,6 +8,7 @@ var lifes = 3
 var score = 0
 var can_take_damage= true
 var can_move =true
+var first_time= true
 
 
 

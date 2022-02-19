@@ -16,6 +16,11 @@ func _process(_delta):
 	gameover()
 
 
+func _input(event:InputEvent) ->void:
+	if event.is_action_pressed("reset") and DataPlayer.lifes != 0:
+		$TopLayer/HUD/AnimationCost.play("cost")
+
+
 func gameover():
 	if DataPlayer.lifes == 0:
 		$TopLayer/HUD.visible=false

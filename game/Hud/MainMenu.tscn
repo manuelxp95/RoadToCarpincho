@@ -162,6 +162,10 @@ tracks/3/keys = {
 "values": [ true, false ]
 }
 
+[sub_resource type="DynamicFont" id=9]
+size = 40
+font_data = ExtResource( 7 )
+
 [sub_resource type="StyleBoxFlat" id=8]
 bg_color = Color( 0.909804, 0.639216, 0.32549, 0.698039 )
 border_width_left = 5
@@ -174,10 +178,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 shadow_size = 3
-
-[sub_resource type="DynamicFont" id=9]
-size = 40
-font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -769,8 +769,8 @@ margin_left = -272.0
 margin_top = 50.0
 margin_right = 282.0
 margin_bottom = 100.0
-custom_styles/normal = SubResource( 8 )
 custom_fonts/font = SubResource( 9 )
+custom_styles/normal = SubResource( 8 )
 text = "Road to Carpincho"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -820,6 +820,7 @@ margin_top = 92.0
 margin_right = 209.0
 margin_bottom = 113.0
 text = "Exit"
+
 [connection signal="pressed" from="Scores/Camera2D/Panel/VBoxContainer/ButtonBack" to="." method="_on_ButtonBack_pressed"]
 [connection signal="pressed" from="Buttons/VBoxContainer/ButtonStart" to="." method="_on_ButtonStart_pressed"]
 [connection signal="pressed" from="Buttons/VBoxContainer/ButtonScores" to="." method="_on_ButtonScores_pressed"]

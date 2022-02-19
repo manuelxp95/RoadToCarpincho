@@ -2,6 +2,7 @@ extends Node
 
 var current_song = 1
 
+
 func slowmusic():
 	var slow_song = "OstSong" + str(current_song)
 	var ost_current= get_node(slow_song)
@@ -11,6 +12,12 @@ func normalmusic():
 	var slow_song = "OstSong" + str(current_song)
 	var ost_current= get_node(slow_song)
 	ost_current.pitch_scale = 1.0
+
+func return_menuost():
+	var song = "OstSong" + str(current_song)
+	var ost_current= get_node(song)
+	ost_current.stop()
+	$MainMenu/MenuOst.play()
 
 func startmusic():
 	$MainMenu/MenuOst.stop()

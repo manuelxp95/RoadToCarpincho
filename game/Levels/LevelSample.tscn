@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://game/animals/Carpincho.tscn" type="PackedScene" id=1]
 [ext_resource path="res://game/Levels/TileMapProcedurally.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://game/enemy/Mosquito.tscn" type="PackedScene" id=11]
 [ext_resource path="res://game/Hud/PauseScreen.tscn" type="PackedScene" id=12]
 [ext_resource path="res://game/Hud/GameOverScreen.tscn" type="PackedScene" id=13]
+[ext_resource path="res://resources/font/zig_____.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 17, 0, 17, 0, 0, 32, 0 )
@@ -226,6 +227,78 @@ points = PoolVector2Array( 24.1018, 22.5787, 10.7916, 22.5787, 10.7916, 11.0046,
 } ]
 5/z_index = 0
 
+[sub_resource type="DynamicFont" id=14]
+size = 24
+font_data = ExtResource( 14 )
+
+[sub_resource type="Animation" id=15]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rect_position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 416, 56 ) ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "cost"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 0.258817 ),
+"update": 0,
+"values": [ Color( 1, 0.027451, 0.027451, 1 ), Color( 1, 0.027451, 0.027451, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:rect_position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 416, 64 ), Vector2( 416, 44 ) ]
+}
+tracks/3/type = "method"
+tracks/3/path = NodePath("../../../Mapa/TileMapProcedurally")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "reload_map"
+} ]
+}
+
 [node name="LevelSample" type="Node"]
 script = ExtResource( 3 )
 
@@ -263,6 +336,29 @@ position = Vector2( 280, 512 )
 [node name="TopLayer" type="CanvasLayer" parent="."]
 
 [node name="HUD" parent="TopLayer" instance=ExtResource( 9 )]
+
+[node name="ResetCost" type="Label" parent="TopLayer/HUD"]
+visible = false
+self_modulate = Color( 1, 0.027451, 0.027451, 1 )
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -224.0
+margin_top = -184.0
+margin_bottom = -111.999
+custom_fonts/font = SubResource( 14 )
+text = "-50"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationCost" type="AnimationPlayer" parent="TopLayer/HUD"]
+root_node = NodePath("../ResetCost")
+anims/RESET = SubResource( 15 )
+anims/cost = SubResource( 16 )
 
 [node name="PauseScreen" parent="TopLayer" instance=ExtResource( 12 )]
 
