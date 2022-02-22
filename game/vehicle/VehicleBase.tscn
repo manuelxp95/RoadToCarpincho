@@ -83,6 +83,8 @@ extents = Vector2( 24.6528, 9.16667 )
 [node name="VehicleBase" type="KinematicBody2D"]
 position = Vector2( -22, -12 )
 scale = Vector2( 0.9, 0.9 )
+z_index = 55
+z_as_relative = false
 collision_mask = 2
 script = ExtResource( 2 )
 

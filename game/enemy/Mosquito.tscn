@@ -460,16 +460,18 @@ end_node = "dead"
 [sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
 [node name="Mosquito" type="KinematicBody2D"]
+z_index = 55
+z_as_relative = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource( 11 )
 
 [node name="Animation" type="AnimatedSprite" parent="."]
-position = Vector2( 0, -5.82277 )
+position = Vector2( 0, -9.06731 )
 scale = Vector2( 0.45, 0.45 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 7
+frame = 5
 
 [node name="DetectorPlayer" type="Area2D" parent="Animation"]
 position = Vector2( 0, 16.0046 )

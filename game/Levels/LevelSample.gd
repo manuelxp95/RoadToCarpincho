@@ -5,12 +5,16 @@ onready var respawn_pos= $Respawn
 onready var vehicles= $Vehicles
 onready var powerup= $Powerup
 
+
 var carpincho
 var mosquito
 
+export var limit_camera = 560
 
 func _ready():
 	player.connect("take_damage",self,"respawn")
+	player.set_camera_limits(limit_camera)
+
 
 func _process(_delta):
 	gameover()
@@ -35,3 +39,4 @@ func respawn():
 	player.collision_active()
 	yield(get_tree().create_timer(1.0),"timeout")
 	DataPlayer.can_move= true
+

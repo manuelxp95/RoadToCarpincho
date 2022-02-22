@@ -20,7 +20,7 @@ func _on_ButtonStart_pressed():
 		get_tree().change_scene("res://game/Hud/Tutorial.tscn")
 		DataPlayer.first_time= false
 	else:
-		get_tree().change_scene("res://game/Levels/LevelSample.tscn")
+		get_tree().change_scene("res://game/Levels/Level1.tscn")
 	GlobalSfx.startmusic()
 
 

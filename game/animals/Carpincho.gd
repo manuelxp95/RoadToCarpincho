@@ -7,6 +7,7 @@ signal take_damage()
 
 export var vel = Vector2(960.0,960.0)
 
+
 #-------------------- Local Variables
 const vel_const = Vector2(960.0,960.0)
 
@@ -23,6 +24,7 @@ onready var carpincho_sprite=$CarpinchoSprite
 onready var t_standby=$TimerStandby
 onready var t_posion=$TimerPoison
 onready var collision = $Collision
+onready var camera= $Camera2D
 
 
 
@@ -129,3 +131,8 @@ func _on_TimerPoison_timeout():
 	self.modulate = Color("ffffff")
 	$BubblePoison.emitting=false
 	poison=1
+
+#--------- function that control camera limits
+
+func set_camera_limits(new_limit):
+	camera.limit_bottom = new_limit

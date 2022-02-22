@@ -1,19 +1,175 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=39 format=2]
 
-[ext_resource path="res://game/animals/Carpincho.tscn" type="PackedScene" id=1]
-[ext_resource path="res://game/Levels/TileMapProcedurally.tscn" type="PackedScene" id=2]
-[ext_resource path="res://game/Levels/LevelSample.gd" type="Script" id=3]
-[ext_resource path="res://resources/fences/Wooden fence/Wooden-fence-4.png" type="Texture" id=4]
-[ext_resource path="res://resources/fences/Wooden fence/Wooden-fence-2.png" type="Texture" id=5]
-[ext_resource path="res://resources/grass/TX-Plant.png" type="Texture" id=6]
-[ext_resource path="res://resources/stones/TX Props.png" type="Texture" id=7]
-[ext_resource path="res://game/powerups/MatePowerUp.tscn" type="PackedScene" id=8]
-[ext_resource path="res://game/Hud/HUD.tscn" type="PackedScene" id=9]
-[ext_resource path="res://game/powerups/Food.tscn" type="PackedScene" id=10]
-[ext_resource path="res://game/enemy/Mosquito.tscn" type="PackedScene" id=11]
-[ext_resource path="res://game/Hud/PauseScreen.tscn" type="PackedScene" id=12]
-[ext_resource path="res://game/Hud/GameOverScreen.tscn" type="PackedScene" id=13]
-[ext_resource path="res://resources/font/zig_____.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://game/Hud/PauseScreen.gd" type="Script" id=1]
+[ext_resource path="res://game/powerups/Food.gd" type="Script" id=2]
+[ext_resource path="res://game/Hud/HUD.gd" type="Script" id=3]
+[ext_resource path="res://game/Hud/GameOverScreen.gd" type="Script" id=4]
+[ext_resource path="res://resources/grass/TX Tileset Grass.png" type="Texture" id=5]
+[ext_resource path="res://resources/map/outdoors.png" type="Texture" id=6]
+[ext_resource path="res://resources/grass/TX-Tileset-Grass.png" type="Texture" id=7]
+[ext_resource path="res://resources/grass/TX-Plant.png" type="Texture" id=8]
+[ext_resource path="res://resources/fences/Wooden fence/Wooden-fence-4.png" type="Texture" id=9]
+[ext_resource path="res://resources/fences/Wooden fence/Wooden-fence-2.png" type="Texture" id=10]
+[ext_resource path="res://resources/stones/TX Props.png" type="Texture" id=11]
+[ext_resource path="res://game/powerups/Food.tscn" type="PackedScene" id=12]
+[ext_resource path="res://game/Hud/HUD.tscn" type="PackedScene" id=13]
+[ext_resource path="res://game/Hud/PauseScreen.tscn" type="PackedScene" id=14]
+[ext_resource path="res://game/Hud/GameOverScreen.tscn" type="PackedScene" id=15]
+[ext_resource path="res://game/animals/Carpincho.tscn" type="PackedScene" id=16]
+[ext_resource path="res://game/Levels/TileMapProcedurally.tscn" type="PackedScene" id=17]
+[ext_resource path="res://game/Levels/TileMapProcedurally.gd" type="Script" id=18]
+[ext_resource path="res://game/Levels/LevelSample.gd" type="Script" id=19]
+[ext_resource path="res://game/animals/Carpincho.gd" type="Script" id=20]
+[ext_resource path="res://resources/font/zig_____.ttf" type="DynamicFontData" id=21]
+
+[sub_resource type="TileSet" id=2]
+0/name = "outdoors.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 128, 144, 16, 16 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "outdoors.png 1"
+1/texture = ExtResource( 6 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 256, 224, 16, 32 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "outdoors.png 2"
+2/texture = ExtResource( 6 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 256, 144, 16, 32 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "TX Tileset Grass.png 3"
+3/texture = ExtResource( 5 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 192, 256 )
+3/tile_mode = 2
+3/autotile/icon_coordinate = Vector2( 0, 0 )
+3/autotile/tile_size = Vector2( 16, 16 )
+3/autotile/spacing = 0
+3/autotile/occluder_map = [  ]
+3/autotile/navpoly_map = [  ]
+3/autotile/priority_map = [  ]
+3/autotile/z_index_map = [  ]
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "TX Tileset Grass.png 4"
+4/texture = ExtResource( 5 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 128, 64, 128 )
+4/tile_mode = 2
+4/autotile/icon_coordinate = Vector2( 0, 0 )
+4/autotile/tile_size = Vector2( 16, 16 )
+4/autotile/spacing = 0
+4/autotile/occluder_map = [  ]
+4/autotile/navpoly_map = [  ]
+4/autotile/priority_map = [  ]
+4/autotile/z_index_map = [  ]
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+5/name = "TX-Tileset-Grass.png 5"
+5/texture = ExtResource( 7 )
+5/tex_offset = Vector2( 0, 0 )
+5/modulate = Color( 1, 1, 1, 1 )
+5/region = Rect2( 112, 128, 144, 96 )
+5/tile_mode = 2
+5/autotile/icon_coordinate = Vector2( 0, 0 )
+5/autotile/tile_size = Vector2( 16, 16 )
+5/autotile/spacing = 0
+5/autotile/occluder_map = [  ]
+5/autotile/navpoly_map = [  ]
+5/autotile/priority_map = [  ]
+5/autotile/z_index_map = [  ]
+5/occluder_offset = Vector2( 0, 0 )
+5/navigation_offset = Vector2( 0, 0 )
+5/shape_offset = Vector2( 0, 0 )
+5/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+5/shape_one_way = false
+5/shape_one_way_margin = 0.0
+5/shapes = [  ]
+5/z_index = 0
+6/name = "TX-Tileset-Grass.png 6"
+6/texture = ExtResource( 7 )
+6/tex_offset = Vector2( 0, 0 )
+6/modulate = Color( 1, 1, 1, 1 )
+6/region = Rect2( 0, 0, 128, 128 )
+6/tile_mode = 2
+6/autotile/icon_coordinate = Vector2( 0, 0 )
+6/autotile/tile_size = Vector2( 16, 16 )
+6/autotile/spacing = 0
+6/autotile/occluder_map = [  ]
+6/autotile/navpoly_map = [  ]
+6/autotile/priority_map = [  ]
+6/autotile/z_index_map = [  ]
+6/occluder_offset = Vector2( 0, 0 )
+6/navigation_offset = Vector2( 0, 0 )
+6/shape_offset = Vector2( 0, 0 )
+6/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+6/shape_one_way = false
+6/shape_one_way_margin = 0.0
+6/shapes = [  ]
+6/z_index = 0
+7/name = "TX Props.png 7"
+7/texture = ExtResource( 11 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 480, 320, 32 )
+7/tile_mode = 2
+7/autotile/icon_coordinate = Vector2( 0, 0 )
+7/autotile/tile_size = Vector2( 16, 16 )
+7/autotile/spacing = 0
+7/autotile/occluder_map = [  ]
+7/autotile/navpoly_map = [  ]
+7/autotile/priority_map = [  ]
+7/autotile/z_index_map = [ Vector3( 10, 1, 30 ), Vector3( 12, 1, 30 ) ]
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 32, 17, 0, 17, 0, 0, 32, 0 )
@@ -53,7 +209,7 @@ points = PoolVector2Array( 24.1018, 22.5787, 10.7916, 22.5787, 10.7916, 11.0046,
 
 [sub_resource type="TileSet" id=13]
 0/name = "Wooden-fence-2.png 0"
-0/texture = ExtResource( 5 )
+0/texture = ExtResource( 10 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 32, 17 )
@@ -67,7 +223,7 @@ points = PoolVector2Array( 24.1018, 22.5787, 10.7916, 22.5787, 10.7916, 11.0046,
 0/shapes = [  ]
 0/z_index = 0
 1/name = "Wooden-fence-2.png 1"
-1/texture = ExtResource( 5 )
+1/texture = ExtResource( 10 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 32, 17 )
@@ -88,7 +244,7 @@ points = PoolVector2Array( 24.1018, 22.5787, 10.7916, 22.5787, 10.7916, 11.0046,
 } ]
 1/z_index = 0
 2/name = "Wooden-fence-4.png 2"
-2/texture = ExtResource( 4 )
+2/texture = ExtResource( 9 )
 2/tex_offset = Vector2( 0, 0 )
 2/modulate = Color( 1, 1, 1, 1 )
 2/region = Rect2( 0, 0, 18, 34 )
@@ -109,7 +265,7 @@ points = PoolVector2Array( 24.1018, 22.5787, 10.7916, 22.5787, 10.7916, 11.0046,
 } ]
 2/z_index = 0
 3/name = "Wooden-fence-4.png 3"
-3/texture = ExtResource( 4 )
+3/texture = ExtResource( 9 )
 3/tex_offset = Vector2( 0, 0 )
 3/modulate = Color( 1, 1, 1, 1 )
 3/region = Rect2( 0, 0, 18, 17 )
@@ -130,7 +286,7 @@ points = PoolVector2Array( 24.1018, 22.5787, 10.7916, 22.5787, 10.7916, 11.0046,
 } ]
 3/z_index = 0
 4/name = "TX-Plant.png 4"
-4/texture = ExtResource( 6 )
+4/texture = ExtResource( 8 )
 4/tex_offset = Vector2( 0, 0 )
 4/modulate = Color( 1, 1, 1, 1 )
 4/region = Rect2( 0, 384, 128, 128 )
@@ -151,7 +307,7 @@ points = PoolVector2Array( 24.1018, 22.5787, 10.7916, 22.5787, 10.7916, 11.0046,
 4/shapes = [  ]
 4/z_index = 0
 5/name = "TX Props.png 5"
-5/texture = ExtResource( 7 )
+5/texture = ExtResource( 11 )
 5/tex_offset = Vector2( 0, 0 )
 5/modulate = Color( 1, 1, 1, 1 )
 5/region = Rect2( 0, 480, 320, 32 )
@@ -229,7 +385,7 @@ points = PoolVector2Array( 24.1018, 22.5787, 10.7916, 22.5787, 10.7916, 11.0046,
 
 [sub_resource type="DynamicFont" id=14]
 size = 24
-font_data = ExtResource( 14 )
+font_data = ExtResource( 21 )
 
 [sub_resource type="Animation" id=15]
 length = 0.001
@@ -299,21 +455,29 @@ tracks/3/keys = {
 } ]
 }
 
-[node name="LevelSample" type="Node"]
-script = ExtResource( 3 )
+[node name="Level3" type="Node"]
+script = ExtResource( 19 )
 
-[node name="Carpincho" parent="." instance=ExtResource( 1 )]
-position = Vector2( 336, 512 )
+[node name="Carpincho" type="KinematicBody2D" parent="." instance=ExtResource( 16 )]
+position = Vector2( 320, 512 )
+z_index = 50
+z_as_relative = false
+collision_layer = 2
+collision_mask = 5
+script = ExtResource( 20 )
 
 [node name="Mapa" type="Node" parent="."]
 
-[node name="TileMapProcedurally" parent="Mapa" instance=ExtResource( 2 )]
-z_index = 0
-z_as_relative = true
+[node name="TileMapProcedurally" type="TileMap" parent="Mapa" instance=ExtResource( 17 )]
+tile_set = SubResource( 2 )
+cell_size = Vector2( 16, 16 )
+format = 1
 tile_data = PoolIntArray( -327679, 0, 0, 65535, 0, 0, 131069, 0, 0 )
-amountRoad = 5
-amountEnemys = 1
-level_number = "Sample"
+script = ExtResource( 18 )
+amountRoad = 6
+amountEnemys = 2
+level_number = "3"
+next_level = "4"
 
 [node name="TileMapEnvio" type="TileMap" parent="Mapa/TileMapProcedurally"]
 tile_set = SubResource( 13 )
@@ -328,15 +492,27 @@ position = Vector2( 320, 512 )
 
 [node name="Powerup" type="Node" parent="."]
 
-[node name="MatePowerUp" parent="Powerup" instance=ExtResource( 8 )]
-position = Vector2( 384, 504 )
-
-[node name="Food" parent="Powerup" instance=ExtResource( 10 )]
+[node name="Food" type="Area2D" parent="Powerup" instance=ExtResource( 12 )]
 position = Vector2( 280, 512 )
+scale = Vector2( 0.8, 0.8 )
+script = ExtResource( 2 )
+
+[node name="Food2" parent="Powerup" instance=ExtResource( 12 )]
+position = Vector2( 480, 184 )
+z_index = 0
+z_as_relative = true
+collision_layer = 1
+collision_mask = 1
 
 [node name="TopLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" parent="TopLayer" instance=ExtResource( 9 )]
+[node name="HUD" type="Control" parent="TopLayer" instance=ExtResource( 13 )]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ResetCost" type="Label" parent="TopLayer/HUD"]
 visible = false
@@ -362,14 +538,27 @@ root_node = NodePath("../ResetCost")
 anims/RESET = SubResource( 15 )
 anims/cost = SubResource( 16 )
 
-[node name="PauseScreen" parent="TopLayer" instance=ExtResource( 12 )]
+[node name="PauseScreen" type="Control" parent="TopLayer" instance=ExtResource( 14 )]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="GameOverScreen" parent="TopLayer" instance=ExtResource( 13 )]
+[node name="GameOverScreen" type="Control" parent="TopLayer" instance=ExtResource( 15 )]
+pause_mode = 2
 visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Vehicles" type="Node" parent="."]
 
 [node name="Enemys" type="Node" parent="."]
 
-[node name="Mosquito" parent="Enemys" instance=ExtResource( 11 )]
-position = Vector2( 104, 352 )
+[connection signal="body_entered" from="Powerup/Food" to="Powerup/Food" method="_on_Food_body_entered"]

@@ -5,15 +5,17 @@ export var width = 39
 export var height = 35
 export var amountRoad = 1
 export var amountEnemys = 0
+export var level_number = "1"
+export var next_level = "Sample"
 
 var margin = 7
-var yOffset= height-margin
-#var yOffset= rand_range(margin,height-margin)
+var yOffset
 var vehicle= preload("res://game/vehicle/VehicleBase.tscn")
 var gaucho= preload("res://game/enemy/Gaucho.tscn")
 var rng = RandomNumberGenerator.new()
 var all_vehicles = []
 var beetween_cars= true
+var path_level
 
 
 onready var winPoint = $LakeWin
@@ -21,6 +23,15 @@ onready var t_environment = $TileMapEnvio
 
 
 func _ready() -> void:
+	
+	#-------------------Initialice
+	
+	path_level = "/root/Level"+level_number
+	yOffset= height-margin
+	winPoint.next_lvl=next_level
+	
+	#-------------------Functions
+	
 	make_back_black()
 	amount_road()
 	make_zonewin()
@@ -67,7 +78,7 @@ func make_a_vehicle(y):
 	var dir = rng.randi_range(0,1)
 	var rng_speed= rand_range(-300,-60)
 	var new_speed=Vector2(rng_speed,0)
-	get_node("/root/LevelSample/Vehicles").call_deferred("add_child", new_vehicle)
+	get_node(path_level+"/Vehicles").call_deferred("add_child", new_vehicle)
 	new_vehicle.create(Vector2(700,y),dir,new_speed) #this position should be random
 	all_vehicles.append([Vector2(700,y),dir,new_speed])
 
@@ -76,7 +87,7 @@ func spawn_loop():
 	if beetween_cars:
 		for car in all_vehicles:
 			var new_vehicle= vehicle.instance()
-			get_node("/root/LevelSample/Vehicles").call_deferred("add_child", new_vehicle)
+			get_node(path_level+"/Vehicles").call_deferred("add_child", new_vehicle)
 			new_vehicle.create(car[0],car[1],car[2])
 		beetween_cars=false
 		$Timer.start()
@@ -103,7 +114,7 @@ func spawn_gaucho():
 		var rng_y= rand_range(margin,yOffset)
 		if get_cell(rng_x,rng_y) == 6:
 			var new_enemy = gaucho.instance()
-			get_node("/root/LevelSample/Enemys").call_deferred("add_child", new_enemy)
+			get_node(path_level+"/Enemys").call_deferred("add_child", new_enemy)
 			new_enemy.create(Vector2(rng_x*16,rng_y*16))
 			i +=1
 
