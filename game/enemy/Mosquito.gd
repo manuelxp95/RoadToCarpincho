@@ -56,7 +56,6 @@ func attack(delta):
 		$Tween.start()
 		state_machine.travel("attack")
 	else:
-		$Animation/AreaHit/CollisionShape2D.set_deferred("disabled",true)
 		animation_tree.set('parameters/dead/blend_position', direction)
 		state_machine.travel("dead")
 
@@ -77,6 +76,7 @@ func _on_DetectorPlayer_body_exited(body):
 
 
 func _on_AreaHit_body_entered(body):
+	$Animation/AreaHit/CollisionShape2D.set_deferred("disabled",true)
 	can_move=false
 	hit=true
 	body.poison()

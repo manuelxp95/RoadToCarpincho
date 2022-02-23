@@ -96,7 +96,7 @@ func collision_active():
 func mate_powerup() -> void:
 	$Camera2D/PoweUp/AnimationPower.play("slowtime")
 
-# standby controler
+# ------------------standby controler
 func _on_TimerStandby_timeout():
 	sprite_sit=true
 	animation.stop()
@@ -116,7 +116,6 @@ func get_mypos():
 
 func poison():
 	self.modulate = Color("00ff52")
-	print(modulate)
 	t_posion.start()
 	$BubblePoison.emitting=true
 	poison=-1

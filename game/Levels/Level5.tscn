@@ -1,10 +1,6 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=35 format=2]
 
-[ext_resource path="res://game/Hud/PauseScreen.gd" type="Script" id=1]
-[ext_resource path="res://game/powerups/MatePowerUp.gd" type="Script" id=2]
-[ext_resource path="res://game/enemy/Mosquito.gd" type="Script" id=3]
 [ext_resource path="res://game/Levels/LevelSample.gd" type="Script" id=4]
-[ext_resource path="res://game/Levels/TileMapProcedurally.gd" type="Script" id=5]
 [ext_resource path="res://game/Hud/GameOverScreen.tscn" type="PackedScene" id=6]
 [ext_resource path="res://game/animals/Carpincho.tscn" type="PackedScene" id=7]
 [ext_resource path="res://game/Hud/HUD.tscn" type="PackedScene" id=8]
@@ -20,10 +16,6 @@
 [ext_resource path="res://resources/grass/TX Tileset Grass.png" type="Texture" id=18]
 [ext_resource path="res://resources/stones/TX Props.png" type="Texture" id=19]
 [ext_resource path="res://resources/fences/Wooden fence/Wooden-fence-4.png" type="Texture" id=20]
-[ext_resource path="res://game/Hud/HUD.gd" type="Script" id=21]
-[ext_resource path="res://game/animals/Carpincho.gd" type="Script" id=22]
-[ext_resource path="res://game/powerups/Food.gd" type="Script" id=23]
-[ext_resource path="res://game/Hud/GameOverScreen.gd" type="Script" id=24]
 [ext_resource path="res://resources/font/zig_____.ttf" type="DynamicFontData" id=25]
 
 [sub_resource type="TileSet" id=2]
@@ -463,27 +455,19 @@ tracks/3/keys = {
 script = ExtResource( 4 )
 limit_camera = 1280
 
-[node name="Carpincho" type="KinematicBody2D" parent="." instance=ExtResource( 7 )]
-position = Vector2( 324, 1228 )
-z_index = 50
-z_as_relative = false
-collision_layer = 2
-collision_mask = 5
-script = ExtResource( 22 )
+[node name="Carpincho" parent="." instance=ExtResource( 7 )]
+position = Vector2( 320, 1240 )
 
 [node name="Mapa" type="Node" parent="."]
 
-[node name="TileMapProcedurally" type="TileMap" parent="Mapa" instance=ExtResource( 9 )]
+[node name="TileMapProcedurally" parent="Mapa" instance=ExtResource( 9 )]
 tile_set = SubResource( 2 )
-cell_size = Vector2( 16, 16 )
-format = 1
-tile_data = PoolIntArray( -327679, 0, 0, 65535, 0, 0, 131069, 0, 0 )
-script = ExtResource( 5 )
+tile_data = PoolIntArray( -327679, 0, 0, 65535, 0, 0, 131069, 0, 0, 131188, 0, 0 )
 height = 80
-amountRoad = 15
+amountRoad = 13
 amountEnemys = 7
 level_number = "5"
-next_level = "win"
+next_level = "Win"
 
 [node name="TileMapEnvio" type="TileMap" parent="Mapa/TileMapProcedurally"]
 tile_set = SubResource( 13 )
@@ -498,39 +482,21 @@ position = Vector2( 322, 1234 )
 
 [node name="Powerup" type="Node" parent="."]
 
-[node name="MatePowerUp" type="Area2D" parent="Powerup" instance=ExtResource( 13 )]
+[node name="MatePowerUp" parent="Powerup" instance=ExtResource( 13 )]
 position = Vector2( 120, 464 )
-scale = Vector2( 0.05, 0.05 )
-z_index = 45
-z_as_relative = false
-collision_layer = 0
-collision_mask = 2
-script = ExtResource( 2 )
 
 [node name="MatePowerUp2" parent="Powerup" instance=ExtResource( 13 )]
 position = Vector2( 520, 784 )
 
-[node name="Food" type="Area2D" parent="Powerup" instance=ExtResource( 11 )]
+[node name="Food" parent="Powerup" instance=ExtResource( 11 )]
 position = Vector2( 112, 272 )
-scale = Vector2( 0.8, 0.8 )
-z_index = 45
-z_as_relative = false
-collision_layer = 0
-collision_mask = 2
-script = ExtResource( 23 )
 
 [node name="Food2" parent="Powerup" instance=ExtResource( 11 )]
 position = Vector2( 96, 712 )
 
 [node name="TopLayer" type="CanvasLayer" parent="."]
 
-[node name="HUD" type="Control" parent="TopLayer" instance=ExtResource( 8 )]
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 21 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="HUD" parent="TopLayer" instance=ExtResource( 8 )]
 
 [node name="ResetCost" type="Label" parent="TopLayer/HUD"]
 visible = false
@@ -555,39 +521,17 @@ root_node = NodePath("../ResetCost")
 anims/RESET = SubResource( 15 )
 anims/cost = SubResource( 16 )
 
-[node name="PauseScreen" type="Control" parent="TopLayer" instance=ExtResource( 10 )]
-pause_mode = 2
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="PauseScreen" parent="TopLayer" instance=ExtResource( 10 )]
 
-[node name="GameOverScreen" type="Control" parent="TopLayer" instance=ExtResource( 6 )]
-pause_mode = 2
+[node name="GameOverScreen" parent="TopLayer" instance=ExtResource( 6 )]
 visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-script = ExtResource( 24 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Vehicles" type="Node" parent="."]
 
 [node name="Enemys" type="Node" parent="."]
 
-[node name="Mosquito" type="KinematicBody2D" parent="Enemys" instance=ExtResource( 12 )]
+[node name="Mosquito" parent="Enemys" instance=ExtResource( 12 )]
 position = Vector2( 40, 272 )
-z_index = 55
-z_as_relative = false
-collision_layer = 0
-collision_mask = 2
-script = ExtResource( 3 )
 
 [node name="Mosquito2" parent="Enemys" instance=ExtResource( 12 )]
 position = Vector2( 568, 696 )
-
-[connection signal="body_entered" from="Powerup/MatePowerUp" to="Powerup/MatePowerUp" method="_on_MatePowerUp_body_entered"]
-[connection signal="body_entered" from="Powerup/Food" to="Powerup/Food" method="_on_Food_body_entered"]
