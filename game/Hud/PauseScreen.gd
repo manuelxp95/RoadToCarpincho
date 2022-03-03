@@ -15,4 +15,5 @@ func _on_ButtonResume_pressed():
 
 
 func _on_ButtonMain_pressed():
+# warning-ignore:return_value_discarded
 	get_tree().change_scene("res://game/Hud/MainMenu.tscn")

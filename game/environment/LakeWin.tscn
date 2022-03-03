@@ -249,6 +249,14 @@ points = PoolVector2Array( 14, 56, 14, 56, 42, 56, 28, 70 )
 3/shapes = [  ]
 3/z_index = 0
 
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 8 )
+region = Rect2( 32, 192, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 8 )
+region = Rect2( 64, 192, 32, 32 )
+
 [sub_resource type="AtlasTexture" id=7]
 atlas = ExtResource( 8 )
 region = Rect2( 0, 64, 32, 32 )
@@ -265,24 +273,16 @@ region = Rect2( 64, 64, 32, 32 )
 atlas = ExtResource( 8 )
 region = Rect2( 96, 64, 32, 32 )
 
-[sub_resource type="AtlasTexture" id=11]
-atlas = ExtResource( 8 )
-region = Rect2( 32, 192, 32, 32 )
-
-[sub_resource type="AtlasTexture" id=12]
-atlas = ExtResource( 8 )
-region = Rect2( 64, 192, 32, 32 )
-
 [sub_resource type="SpriteFrames" id=13]
 animations = [ {
-"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
-"loop": true,
-"name": "walk",
-"speed": 5.0
-}, {
 "frames": [ SubResource( 11 ), SubResource( 12 ) ],
 "loop": true,
 "name": "stand",
+"speed": 5.0
+}, {
+"frames": [ SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "walk",
 "speed": 5.0
 } ]
 

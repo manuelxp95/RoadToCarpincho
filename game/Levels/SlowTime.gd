@@ -15,9 +15,11 @@ func start(duration= 5, strength= 0.9 ):
 	Engine.time_scale=start_value
 	is_active=true
 
+# warning-ignore:unused_argument
 func _process(delta):
 	if is_active:
 		var current_time =OS.get_ticks_msec()-time_start
+# warning-ignore:unused_variable
 		var value = easeInCubic(current_time,start_value,END_VALUE,duration_ms)
 		if current_time >= duration_ms:
 			is_active =false

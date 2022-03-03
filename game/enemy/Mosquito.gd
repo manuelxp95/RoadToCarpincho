@@ -32,17 +32,15 @@ func tree_control(delta):
 		attack(delta)
 
 
-
-
-
 func rotate_body():
 	direction = -direction
 	det_player.scale.x = - det_player.scale.x
+	$Animation/AreaHit/CollisionHit.position.x = -($Animation/AreaHit/CollisionHit.position.x)
 	animation_tree.set('parameters/idle/blend_position', direction)
 	animation_tree.set('parameters/attack/blend_position', direction)
 
 
-func attack(delta):
+func attack(_delta):
 	if !hit:
 		$Tween.interpolate_property(
 			self,
@@ -62,6 +60,7 @@ func attack(delta):
 
 
 func idle():
+# warning-ignore:return_value_discarded
 	move_and_slide(Vector2(speed*direction,0))
 	state_machine.travel("idle")
 
@@ -71,6 +70,7 @@ func _on_DetectorPlayer_body_entered(body):
 	player_pos= body.get_mypos()
 
 
+# warning-ignore:unused_argument
 func _on_DetectorPlayer_body_exited(body):
 	can_move=true
 

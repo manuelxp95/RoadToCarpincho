@@ -28,7 +28,7 @@ func _ready() -> void:
 	
 	path_level = "/root/Level"+level_number
 	yOffset= height-margin
-	winPoint.next_lvl=next_level
+	DataPlayer.next_lvl=next_level
 	
 	#-------------------Functions
 	
@@ -127,6 +127,7 @@ func _input(event:InputEvent) ->void:
 
 
 func reload_map()->void:
+# warning-ignore:return_value_discarded
 	get_tree().reload_current_scene()
 
 func _on_Timer_timeout():

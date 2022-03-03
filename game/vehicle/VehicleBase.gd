@@ -11,6 +11,7 @@ func _ready():
 
 
 func _process(_delta) -> void:
+# warning-ignore:return_value_discarded
 	move_and_slide(vel,Vector2.UP)
 	destroy()
 

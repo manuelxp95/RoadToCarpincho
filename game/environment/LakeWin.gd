@@ -1,7 +1,6 @@
 extends Area2D
 
 var score = 1000
-var next_lvl
 
 
 func _ready():
@@ -18,4 +17,5 @@ func _on_TimerScore_timeout():
 	score -= 50
 
 func win():
-	get_tree().change_scene("res://game/Levels/Level"+str(next_lvl)+".tscn")
+# warning-ignore:return_value_discarded
+	get_tree().change_scene("res://game/Levels/LvlBetween.tscn")

@@ -19,7 +19,7 @@ func _ready():
 	state_machine =animation_tree.get("parameters/playback")
 
 
-func _process(delta):
+func _process(_delta):
 	tree_control()
 
 
@@ -30,9 +30,6 @@ func tree_control():
 			det_environment.set_deferred("enabled",false)
 			det_environment2.set_deferred("enabled",false)
 			can_move= false
-			state_machine.travel("idle")
-			move_and_slide(Vector2(0,0))
-
 
 			#------------- Rotate body
 			direction = -direction
@@ -43,7 +40,6 @@ func tree_control():
 			$AreaHit/AttackRange.position.x= -$AreaHit/AttackRange.position.x
 
 			#------------------Return to walk
-			yield(get_tree().create_timer(1.0),"timeout")
 			can_move=true
 			state_machine.travel("walk")
 			det_environment.set_deferred("enabled",true)
@@ -61,6 +57,7 @@ func tree_control():
 
 func walk(sp):
 	if can_move:
+# warning-ignore:return_value_discarded
 		move_and_slide(Vector2(sp,0))
 		animation_tree.set('parameters/idle/blend_position', direction)
 		animation_tree.set('parameters/walk/blend_position', direction)
@@ -69,12 +66,14 @@ func walk(sp):
 
 func run(sp):
 	animation_tree.set('parameters/run/blend_position', direction)
+# warning-ignore:return_value_discarded
 	move_and_slide(Vector2(sp*1.6,0))
 	state_machine.travel("run")
 
 
 func attack():
 	animation_tree.set('parameters/attack/blend_position', direction)
+# warning-ignore:return_value_discarded
 	move_and_slide(Vector2(0,0))
 	state_machine.travel("attack")
 
@@ -89,10 +88,12 @@ func _on_AreaHit_body_entered(body):
 		body.damage()
 
 
+# warning-ignore:unused_argument
 func _on_Area2D_body_entered(body):
 	can_move= false
 
 
 
+# warning-ignore:unused_argument
 func _on_Area2D_body_exited(body):
 	can_move= true

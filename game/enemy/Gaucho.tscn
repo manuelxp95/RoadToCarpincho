@@ -447,30 +447,6 @@ region = Rect2( 192, 0, 48, 48 )
 atlas = ExtResource( 5 )
 region = Rect2( 240, 0, 48, 48 )
 
-[sub_resource type="AtlasTexture" id=29]
-atlas = ExtResource( 6 )
-region = Rect2( 0, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=30]
-atlas = ExtResource( 6 )
-region = Rect2( 48, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=31]
-atlas = ExtResource( 6 )
-region = Rect2( 96, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=32]
-atlas = ExtResource( 6 )
-region = Rect2( 144, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=33]
-atlas = ExtResource( 6 )
-region = Rect2( 192, 0, 48, 48 )
-
-[sub_resource type="AtlasTexture" id=34]
-atlas = ExtResource( 6 )
-region = Rect2( 240, 0, 48, 48 )
-
 [sub_resource type="AtlasTexture" id=5]
 atlas = ExtResource( 3 )
 region = Rect2( 0, 0, 48, 48 )
@@ -495,6 +471,30 @@ region = Rect2( 192, 0, 48, 48 )
 atlas = ExtResource( 3 )
 region = Rect2( 240, 0, 48, 48 )
 
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 6 )
+region = Rect2( 0, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 6 )
+region = Rect2( 48, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 6 )
+region = Rect2( 96, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 6 )
+region = Rect2( 144, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 6 )
+region = Rect2( 192, 0, 48, 48 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 6 )
+region = Rect2( 240, 0, 48, 48 )
+
 [sub_resource type="SpriteFrames" id=35]
 animations = [ {
 "frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ) ],
@@ -507,14 +507,14 @@ animations = [ {
 "name": "attack",
 "speed": 10.0
 }, {
-"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
-"loop": true,
-"name": "walk",
-"speed": 10.0
-}, {
 "frames": [ SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
 "loop": true,
 "name": "run",
+"speed": 10.0
+}, {
+"frames": [ SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ) ],
+"loop": true,
+"name": "walk",
 "speed": 10.0
 } ]
 
@@ -610,7 +610,7 @@ states/walk/node = SubResource( 59 )
 states/walk/position = Vector2( 312, 112 )
 transitions = [ "idle", "walk", SubResource( 60 ), "walk", "idle", SubResource( 61 ), "idle", "attack", SubResource( 64 ), "attack", "idle", SubResource( 65 ), "run", "idle", SubResource( 72 ), "idle", "run", SubResource( 73 ) ]
 start_node = "idle"
-graph_offset = Vector2( -362.707, -60.7285 )
+graph_offset = Vector2( -362.707, 89.7995 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=69]
 
@@ -640,7 +640,7 @@ anims/walk_rigth = SubResource( 43 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 1, -1 )
 frames = SubResource( 35 )
-animation = "idle"
+animation = "attack"
 flip_h = true
 
 [node name="Detector" type="RayCast2D" parent="AnimatedSprite"]

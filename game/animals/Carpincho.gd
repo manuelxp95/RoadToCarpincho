@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 #-------------------- Signals
+# warning-ignore:unused_signal
 signal take_damage()
 
 #-------------------- Global Variables
@@ -15,7 +16,7 @@ var mov= Vector2.ZERO
 var lvl_spawn = Vector2(0,0)
 var sprite_sit=false
 
-var poison= 1
+var poison_mov= 1
 
 #-------------------- Node variables
 
@@ -37,6 +38,7 @@ func _physics_process(_delta):
 	check_speed()
 	mov.x= vel.x * direction_input().x
 	mov.y= vel.y * direction_input().y
+# warning-ignore:return_value_discarded
 	move_and_slide(mov,Vector2.UP)
 
 
@@ -70,16 +72,16 @@ func direction_input() -> Vector2:
 
 func dir_input(direction:Vector2) -> Vector2:
 	if Input.is_action_just_pressed("ui_right"): 
-		direction.x =1*poison
+		direction.x =1*poison_mov
 		$soundWalk.play()
 	elif Input.is_action_just_pressed("ui_left"):
-		direction.x = -1*poison
+		direction.x = -1*poison_mov
 		$soundWalk.play()
 	elif Input.is_action_just_pressed("ui_down"):
-		direction.y = 1*poison
+		direction.y = 1*poison_mov
 		$soundWalk.play()
 	elif Input.is_action_just_pressed("ui_up"): 
-		direction.y = -1*poison
+		direction.y = -1*poison_mov
 		$soundWalk.play()
 	return direction
 
@@ -114,11 +116,12 @@ func check_speed() -> void:
 func get_mypos():
 	return global_position
 
+# warning-ignore:function_conflicts_variable
 func poison():
 	self.modulate = Color("00ff52")
 	t_posion.start()
 	$BubblePoison.emitting=true
-	poison=-1
+	poison_mov=-1
 
 
 
@@ -129,7 +132,7 @@ func disabled():
 func _on_TimerPoison_timeout():
 	self.modulate = Color("ffffff")
 	$BubblePoison.emitting=false
-	poison=1
+	poison_mov=1
 
 #--------- function that control camera limits
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://resources/animals/carpincho_16bits.png" type="Texture" id=1]
 [ext_resource path="res://game/Hud/ButtonSample.tscn" type="PackedScene" id=2]
+[ext_resource path="res://game/Levels/LevelWin.gd" type="Script" id=3]
 [ext_resource path="res://resources/font/zig_____.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="DynamicFont" id=21]
@@ -117,6 +118,7 @@ corner_radius_bottom_left = 5
 [node name="LevelWin" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -149,10 +151,10 @@ __meta__ = {
 position = Vector2( -32, 144 )
 scale = Vector2( 2, 2 )
 frames = SubResource( 30 )
-frame = 2
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ColorRect"]
+pause_mode = 2
 root_node = NodePath("../AnimatedSprite")
 autoplay = "idle"
 anims/idle = SubResource( 36 )
@@ -235,3 +237,5 @@ custom_fonts/font = SubResource( 31 )
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 text = "Return to menu"
+
+[connection signal="text_entered" from="Panel/VBoxContainer/InputName" to="." method="_on_InputName_text_entered"]
