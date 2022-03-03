@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://resources/hud/menu_default.png" type="Texture" id=1]
 [ext_resource path="res://resources/hud/menu_tree1.png" type="Texture" id=2]
@@ -178,6 +178,9 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 shadow_size = 3
+
+[sub_resource type="DynamicFont" id=12]
+font_data = ExtResource( 7 )
 
 [sub_resource type="Animation" id=10]
 length = 0.001
@@ -772,6 +775,17 @@ margin_bottom = 100.0
 custom_fonts/font = SubResource( 9 )
 custom_styles/normal = SubResource( 8 )
 text = "Road to Carpincho"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Credits" type="Label" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -18.0
+margin_right = 296.0
+custom_fonts/font = SubResource( 12 )
+text = "by Manuel Ortiz"
 __meta__ = {
 "_edit_use_anchors_": false
 }
